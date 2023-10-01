@@ -1,0 +1,21 @@
+{
+  // DSpace default: "All of DSpace"
+  "menu.section.browse_global": "Browse DSpace",
+
+  // DSpace default: "DSpace Angular :: "
+  "repository.title.prefix": "DSpace :: ",
+
+  "repository.title": "Scholars' Bank Repository",
+  "dso-selector.set-scope.community.button": "Search all of Scholars' Bank",
+  "home.top-level-communities.head": "Communities in Scholars' Bank",
+  "login.form.header": "Please log in to Scholars' Bank",
+  "logout.form.header": "Log out from Scholars' Bank",
+  "menu.section.browse_global": "All of Scholars' Bank",
+  "nav.browse.header": "All of Scholars' Bank",
+  "repository.title": "Scholars' Bank Repository",
+  "search.form.scope.all": "All of Scholars' Bank",
+  "home.top-level-communities.head": "Communities in Scholars' Bank",
+  "home.search-form.placeholder": "Search Scholars' Bank ...",
+  "search.search-form.placeholder": "Search Scholars' Bank ...",
+
+}
