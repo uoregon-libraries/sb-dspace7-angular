@@ -41,12 +41,10 @@ header .navbar-default .navbar-brand {
   height: inherit;
 }
 
-
 #uolib-logo > img {
   height: 35px;
 }
-// #uolib-logo {
-//   display: inline-block;
-//   position: relative;
-//   top: 5px;
-// }
+
+#uolib-logo > h2 {
+  margin: 5px;
+}
