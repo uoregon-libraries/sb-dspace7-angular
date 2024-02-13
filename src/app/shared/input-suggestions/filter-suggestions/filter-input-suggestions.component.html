@@ -14,6 +14,7 @@
   <ng-template #searchInput>
     <input #inputField type="text" [(ngModel)]="value" [name]="name"
            class="form-control suggestion_input"
+           aria-label="Suggestion input"
            [ngClass]="{'is-invalid': !valid}"
            [dsDebounce]="debounceTime" (onDebounce)="find($event)"
            [placeholder]="placeholder"
@@ -21,7 +22,7 @@
     />
   </ng-template>
   <label class="d-none">
-    <input type="submit"/>
+    <input type="submit" aria-label="Submit"/>
     <span>{{'search.filters.search.submit' | translate}}</span>
   </label>
   <div class="autocomplete dropdown-menu" [ngClass]="{'show': (show | async) && isNotEmpty(suggestions)}">

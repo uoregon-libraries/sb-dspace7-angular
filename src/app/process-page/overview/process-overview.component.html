@@ -45,7 +45,8 @@
                     <td>{{process.processStatus}}</td>
                     <td>
                         <button class="btn btn-outline-danger"
-                                (click)="processBulkDeleteService.toggleDelete(process.processId)"><i
+                                (click)="processBulkDeleteService.toggleDelete(process.processId)"
+                                aria-label="Delete"><i
                                 class="fas fa-trash"></i></button>
                     </td>
                 </tr>

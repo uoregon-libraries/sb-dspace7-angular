@@ -36,13 +36,13 @@
         </th>
       </tr>
       <tr *ngIf="(getResourcePolicies() | async)?.length > 0" class="text-center">
-        <th>
+        <th aria-label="Select a policy">
           <div class="custom-control custom-checkbox">
             <input type="checkbox"
                    class="custom-control-input"
                    [id]="'selectAll_' + resourceUUID"
                    (change)="selectAllCheckbox($event)">
-            <label class="custom-control-label" [for]="'selectAll_' + resourceUUID"></label>
+            <label class="custom-control-label" [for]="'selectAll_' + resourceUUID" [attr.aria-label]="'selectAll_' + resourceUUID"></label>
           </div>
         </th>
         <th>{{'resource-policies.table.headers.id' | translate}}</th>

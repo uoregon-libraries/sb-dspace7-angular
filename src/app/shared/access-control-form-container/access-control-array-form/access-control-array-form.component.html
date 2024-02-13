@@ -88,10 +88,11 @@
       </div>
 
       <div>
-        <label>&nbsp;</label>
+        <label aria-label="Layout helper">&nbsp;</label>
         <div class="input-group">
 
           <button type="button" class="btn btn-outline-danger"
+                  aria-label="control.id 'Item access condition type'"
                   [disabled]="ngForm.disabled || form.accessControls.length === 1"
                   (click)="removeAccessControlItem(control.id)">
             <i class="fas fa-trash"></i>

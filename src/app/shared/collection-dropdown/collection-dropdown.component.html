@@ -3,6 +3,7 @@
          class="form-control w-100"
          (click)="$event.stopPropagation();"
          placeholder="{{ 'submission.sections.general.search-collection' | translate }}"
+         [attr.aria-label]="'submission.sections.general.search-collection' | translate"
          [formControl]="searchField"
          #searchFieldEl>
 </div>

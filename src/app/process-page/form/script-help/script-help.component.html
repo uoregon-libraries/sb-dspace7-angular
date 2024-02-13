@@ -1,5 +1,5 @@
 <div class="text-secondary">
-  <h3>{{script?.name}}</h3>
+  <h3 *ngIf="script?.name"> {{script?.name}}</h3>
   <span>{{script?.description}}</span>
 
   <table class="table-borderless mt-3">

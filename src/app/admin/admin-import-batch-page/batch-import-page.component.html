@@ -40,7 +40,7 @@
 
   <div class="form-group mt-2" *ngIf="!isUpload">
     <input class="form-control" type="text" placeholder="{{'admin.metadata-import.page.urlMsg' | translate}}"
-           data-test="file-url-input" [(ngModel)]="fileURL">
+           data-test="file-url-input" [(ngModel)]="fileURL" [attr.aria-label]="'admin.metadata-import.page.urlMsg' | translate">
   </div>
 
   <div class="space-children-mr">

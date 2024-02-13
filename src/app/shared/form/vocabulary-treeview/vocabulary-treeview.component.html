@@ -2,12 +2,12 @@
 <div class="treeview-header row">
   <div class="col-12">
     <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="searchText" (keyup.enter)="search()">
+      <input type="text" class="form-control" [(ngModel)]="searchText" (keyup.enter)="search()" aria-label="Search text">
       <div class="input-group-append" id="button-addon4">
-        <button class="btn btn-outline-primary" type="button" (click)="search()" [disabled]="!isSearchEnabled()">
+        <button class="btn btn-outline-primary" type="button" (click)="search()" [disabled]="!isSearchEnabled()" aria-label="Search form">
           {{'vocabulary-treeview.search.form.search' | translate}}
         </button>
-        <button class="btn btn-outline-secondary" type="button" (click)="reset()">
+        <button class="btn btn-outline-secondary" type="button" (click)="reset()" aria-label="Search reset">
           {{'vocabulary-treeview.search.form.reset' | translate}}
         </button>
       </div>
@@ -22,7 +22,7 @@
   <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <!-- Leaf node -->
     <cdk-tree-node *cdkTreeNodeDef="let node" cdkTreeNodePadding class="d-flex">
-        <button type="button" class="btn btn-default" cdkTreeNodeToggle>
+        <button type="button" class="btn btn-default" cdkTreeNodeToggle aria-label="Node toggle">
           <span class="fas fa-angle-right invisible" aria-hidden="true"></span>
         </button>
           <label *ngIf="multiSelect" class="d-flex align-items-center m-0 p-0 form-check"
@@ -45,6 +45,7 @@
                   [ngbTooltip]="node.item?.otherInformation?.note"
                   [openDelay]="500"
                   container="body"
+                  [attr.aria-label]="node.item"
                   (click)="onSelect(node.item)">
           <span>{{node.item.display}}</span>
         </button>
@@ -78,19 +79,20 @@
                   [ngbTooltip]="node.item?.otherInformation?.note"
                   [openDelay]="500"
                   container="body"
+                  [attr.aria-label]="'node ' + node.name"
                   (click)="onSelect(node.item)">
             <span>{{node.item.display}}</span>
           </button>
     </cdk-tree-node>
 
     <cdk-tree-node *cdkTreeNodeDef="let node; when: isLoadMore" cdkTreeNodePadding>
-      <button class="btn btn-outline-secondary btn-sm" (click)="loadMore(node.loadMoreParentItem)">
+      <button class="btn btn-outline-secondary btn-sm" (click)="loadMore(node.loadMoreParentItem)" aria-label="Tree view load more">
         {{'vocabulary-treeview.load-more' | translate}}...
       </button>
     </cdk-tree-node>
 
     <cdk-tree-node *cdkTreeNodeDef="let node; when: isLoadMoreRoot">
-      <button class="btn btn-outline-secondary btn-sm" (click)="loadMoreRoot(node)">
+      <button class="btn btn-outline-secondary btn-sm" (click)="loadMoreRoot(node)" aria-label="Tree view load more">
         {{'vocabulary-treeview.load-more' | translate}}...
       </button>
     </cdk-tree-node>
