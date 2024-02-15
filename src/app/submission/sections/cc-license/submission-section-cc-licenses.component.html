@@ -135,6 +135,7 @@
         <div (click)="setAccepted(!accepted)">
           <input type="checkbox"
                  title="accepted"
+                 [attr.aria-label]="'accept'"
                  [checked]="accepted">
           <span> {{ 'submission.sections.ccLicense.confirmation' | translate }}</span>
         </div>

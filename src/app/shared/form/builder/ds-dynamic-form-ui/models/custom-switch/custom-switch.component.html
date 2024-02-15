@@ -10,6 +10,7 @@
          [required]="model.required"
          [tabindex]="model.tabIndex"
          [value]="model.value"
+         [attr.aria-label]="model.name"
          (blur)="onBlur($event)"
          (change)="onChange($event)"
          (focus)="onFocus($event)"/>

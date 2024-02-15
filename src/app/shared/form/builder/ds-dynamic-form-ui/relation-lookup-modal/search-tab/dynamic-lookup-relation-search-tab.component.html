@@ -25,13 +25,16 @@
           <input *ngIf="!allSelected && !(someSelected$ | async)"
                  type="checkbox"
                  [indeterminate]="false"
+                 [attr.aria-label]="'Select all'"
                  (change)="selectAll()">
           <input *ngIf="!allSelected && (someSelected$ | async)"
                  type="checkbox"
                  [indeterminate]="true"
+                 [attr.aria-label]="'Deselect all indeterminate'"
                  (change)="deselectAll()">
           <input *ngIf="allSelected" type="checkbox"
                  [checked]="true"
+                 [attr.aria-label]="'Deselect all'"
                  (change)="deselectAll()">
         </div>
       </div>

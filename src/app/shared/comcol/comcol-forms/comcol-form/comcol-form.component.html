@@ -41,6 +41,7 @@
          [formId]="'comcol-form-id'"
          [formModel]="formModel"
          [displayCancel]="false"
+         aria-label="Form model"
          (submitForm)="onSubmit()">
   <button before (click)="back.emit()" class="btn btn-outline-secondary">
     <i class="fas fa-arrow-left"></i> {{ type.value + '.edit.return' | translate }}

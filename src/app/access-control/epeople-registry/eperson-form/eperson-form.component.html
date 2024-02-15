@@ -14,9 +14,10 @@
          [formLayout]="formLayout"
          [displayCancel]="false"
          [submitLabel]="submitLabel"
+         aria-label="Submit label"
          (submitForm)="onSubmit()">
   <div before class="btn-group">
-    <button (click)="onCancel()"
+    <button (click)="onCancel()" [attr.aria-label]="'Cancel'"
             class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> {{messagePrefix + '.return' | translate}}</button>
   </div>
   <div *ngIf="displayResetPassword" between class="btn-group">

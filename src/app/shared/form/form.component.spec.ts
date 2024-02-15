@@ -170,6 +170,7 @@ describe('FormComponent test suite', () => {
         <ds-form *ngIf="formModel" #formRef="formComponent"
                  [formId]="formId"
                  [formModel]="formModel"
+                 aria-label="Display submit"
                  [displaySubmit]="displaySubmit"
                  [displayCancel]="displayCancel"></ds-form>`;
 

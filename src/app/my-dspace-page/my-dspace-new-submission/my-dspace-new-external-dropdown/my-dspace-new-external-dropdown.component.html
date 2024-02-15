@@ -1,5 +1,6 @@
   <div class="add" *ngIf="!(moreThanOne$ | async)">
     <button class="btn btn-lg btn-outline-primary mt-1 ml-2" [disabled]="!(initialized$|async)"
+            aria-label="New submission external"
             (click)="openPage(singleEntity)" role="button"
             title="{{'mydspace.new-submission-external' | translate}}">
       <i class="fa fa-file-import" aria-hidden="true"></i>

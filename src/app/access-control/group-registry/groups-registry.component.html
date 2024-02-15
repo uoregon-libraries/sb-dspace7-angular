@@ -64,6 +64,7 @@
                   <ng-container [ngSwitch]="groupDto.ableToEdit">
                     <button *ngSwitchCase="true"
                       [routerLink]="groupService.getGroupEditPageRouterLink(groupDto.group)"
+                      [attr.aria-label]="'Edit button'"
                       class="btn btn-outline-primary btn-sm btn-edit"
                       title="{{messagePrefix + 'table.edit.buttons.edit' | translate: {name: dsoNameService.getName(groupDto.group) } }}"
                     >
@@ -73,6 +74,7 @@
                       [disabled]="true"
                       class="btn btn-outline-primary btn-sm btn-edit"
                       placement="left"
+                      [attr.aria-label]="'Edit disabled'"
                       [ngbTooltip]="'admin.access-control.epeople.table.edit.buttons.edit-disabled' | translate"
                     >
                       <i class="fas fa-edit fa-fw"></i>
@@ -80,6 +82,7 @@
                   </ng-container>
                   <button *ngIf="!groupDto.group?.permanent && groupDto.ableToDelete"
                           (click)="deleteGroup(groupDto)" class="btn btn-outline-danger btn-sm btn-delete"
+                          [attr.aria-label]="'Delete group'"
                           title="{{messagePrefix + 'table.edit.buttons.remove' | translate: {name: dsoNameService.getName(groupDto.group) } }}">
                     <i class="fas fa-trash-alt fa-fw"></i>
                   </button>

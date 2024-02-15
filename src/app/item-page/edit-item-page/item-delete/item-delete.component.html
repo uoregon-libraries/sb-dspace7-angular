@@ -18,8 +18,8 @@
                              class="d-flex flex-row">
 
                             <div class="m-2" (click)="setSelected(type, !selected)">
-                                <label>
-                                    <input type="checkbox" [checked]="selected">
+                                <label for="select_delete">
+                                    <input type="checkbox" [checked]="selected" id="select_delete">
                                 </label>
                             </div>
 
@@ -39,6 +39,7 @@
                                         <div class="ml-auto">
                                             <div class="btn-group">
                                                 <button class="btn btn-outline-info btn-sm"
+                                                         aria-label="Open modal"
                                                         (click)="openVirtualMetadataModal(virtualMetadataModal)">
                                                     <i class="fas fa-info fa-fw"></i>
                                                 </button>

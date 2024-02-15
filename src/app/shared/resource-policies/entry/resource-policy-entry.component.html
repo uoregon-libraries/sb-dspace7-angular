@@ -26,11 +26,13 @@
 
   <div class="btn-group edit-field">
     <button class="btn btn-outline-primary btn-sm"
+            aria-label="Redirect to resource policies"
             [title]="'resource-policies.table.headers.edit.policy' | translate"
             (click)="redirectToResourcePolicyEditPage()">
       <i class="fas fa-edit fa-fw"></i>
     </button>
     <button *ngIf="(groupName$ | async) !== undefined" class="btn btn-outline-primary btn-sm"
+            aria-label="Redirect to group edit page"
             [title]="'resource-policies.table.headers.edit.group' | translate"
             (click)="redirectToGroupEditPage()">
       <i class="fas fa-users fa-fw"></i>

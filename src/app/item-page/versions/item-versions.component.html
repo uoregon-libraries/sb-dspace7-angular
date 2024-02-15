@@ -57,6 +57,7 @@
                       <!--EDIT WORKSPACE ITEM-->
                       <button class="btn btn-outline-primary btn-sm version-row-element-edit"
                               *ngIf="workspaceId$ | async"
+                              aria-label="Edit Workspace item"
                               (click)="editWorkspaceItem(workspaceId$)"
                               title="{{'item.version.history.table.action.editWorkspaceItem' | translate }}">
                         <i class="fas fa-pencil-alt fa-fw"></i>
@@ -65,6 +66,7 @@
                       <ng-container *ngIf="canCreateVersion$ | async">
                         <button class="btn btn-outline-primary btn-sm version-row-element-create"
                                 [disabled]="isAnyBeingEdited() || (hasDraftVersion$ | async)"
+                                aria-label="Create new version"
                                 (click)="createNewVersion(version)"
                                 title="{{createVersionTitle$ | async | translate }}">
                           <i class="fas fa-code-branch fa-fw"></i>
@@ -74,6 +76,7 @@
                       <ng-container *ngIf="canDeleteVersion$(version) | async">
                         <button class="btn btn-sm version-row-element-delete"
                                 [ngClass]="isAnyBeingEdited() ? 'btn-outline-primary' : 'btn-outline-danger'"
+                                aria-label="Delete version"
                                 [disabled]="isAnyBeingEdited()"
                                 (click)="deleteVersion(version, version.id==itemVersion.id)"
                                 title="{{'item.version.history.table.action.deleteVersion' | translate}}">
@@ -108,6 +111,7 @@
                 <ng-container *ngIf="(canEditVersion$(version) | async) && isThisBeingEdited(version)">
                   <button class="btn btn-sm"
                           [ngClass]="isThisBeingEdited(version) ? 'btn-outline-warning' : 'btn-outline-primary'"
+                          aria-label="Discard summary"
                           (click)="disableVersionEditing()"
                           title="{{'item.version.history.table.action.discardSummary' | translate}}">
                     <i class="fas fa-undo-alt fa-fw"></i>
@@ -117,6 +121,7 @@
                 <ng-container *ngIf="canEditVersion$(version) | async">
                   <button class="btn btn-outline-primary btn-sm version-row-element-edit"
                           *ngIf="!isThisBeingEdited(version)"
+                          aria-label="Edit summary"
                           [disabled]="isAnyBeingEdited()"
                           (click)="enableVersionEditing(version)"
                           title="{{'item.version.history.table.action.editSummary' | translate}}">
@@ -124,6 +129,7 @@
                   </button>
                   <button class="btn btn-outline-success btn-sm"
                           *ngIf="isThisBeingEdited(version)"
+                          aria-label="Save summary"
                           (click)="onSummarySubmit()"
                           title="{{'item.version.history.table.action.saveSummary' | translate}}">
                     <i class="fas fa-check fa-fw"></i>
