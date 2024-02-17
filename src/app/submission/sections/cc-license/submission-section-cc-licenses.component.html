@@ -44,9 +44,10 @@
         {{ field.label }}
       </div>
       <button
+        aria-label="Open info model"
         class="btn btn-outline-info btn-sm ml-2"
         (click)="openInfoModal(infoModal)">
-        <i class="fas fa-question"></i>
+        <i class="fas fa-question" aria-hidden="true"></i>
       </button>
     </div>
 

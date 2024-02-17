@@ -11,6 +11,7 @@
   <input *ngIf="!model.hasAuthority"
          class="border-0 form-control-plaintext tag-input flex-grow-1 mt-1 mb-1"
          type="text"
+         [attr.aria-label]="model.placeholder"
          role="textbox"
          [class.pl-3]="chips.hasItems()"
          [placeholder]="model.placeholder"

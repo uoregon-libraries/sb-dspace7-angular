@@ -16,6 +16,7 @@
                 {{ 'access-control-item-header-toggle' | translate }}
               </h4>
               <ui-switch
+                [checkedLabel]="'access-control-item-header-toggle' | translate"
                 [(ngModel)]="state.item.toggleStatus"
                 (ngModelChange)="handleStatusChange('item', $event)">
               </ui-switch>
@@ -69,6 +70,7 @@
                 {{'access-control-bitstream-header-toggle' | translate}}
               </h4>
               <ui-switch
+                [checkedLabel]="'access-control-bitstream-header-toggle' | translate"
                 [(ngModel)]="state.bitstream.toggleStatus"
                 (ngModelChange)="handleStatusChange('bitstream', $event)">
               </ui-switch>
@@ -99,10 +101,11 @@
 
                   <button
                     *ngIf="itemRD"
+                    [attr.aria-label]="'access-control-bitstreams-selected' | translate"
                     [disabled]="!state.bitstream.toggleStatus || state.bitstream.changesLimit !== 'selected'"
                     (click)="openSelectBitstreamsModal(itemRD.payload)"
                     class="btn btn-outline-dark border-0" type="button">
-                    <i class="fa fa-search"></i>
+                    <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
 
                 </label>

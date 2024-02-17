@@ -46,6 +46,7 @@
             />
             <div class="input-group-append">
               <button
+                [attr.aria-label]="'access-control-option-start-date-note' | translate"
                 class="btn btn-outline-secondary fas fa-calendar"
                 [disabled]="ngForm.disabled"
                 (click)="d.toggle()" type="button">
@@ -75,6 +76,7 @@
             />
             <div class="input-group-append">
               <button
+                [attr.aria-label]="'access-control-option-end-date-note' | translate"
                 type="button" class="btn btn-outline-secondary fas fa-calendar"
                 [disabled]="ngForm.disabled"
                 (click)="d1.toggle()">
@@ -88,7 +90,7 @@
       </div>
 
       <div>
-        <label aria-label="Layout helper">&nbsp;</label>
+        <div style="margin-bottom: 9px;">&nbsp;</div>
         <div class="input-group">
 
           <button type="button" class="btn btn-outline-danger"

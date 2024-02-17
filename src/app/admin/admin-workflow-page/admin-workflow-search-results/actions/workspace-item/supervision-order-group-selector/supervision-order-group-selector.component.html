@@ -22,7 +22,7 @@
             <div class="control-group col-sm-12">
                 <label for="supervisionGroup">{{'supervision-group-selector.select.group.label' | translate}}</label>
                 <ng-container class="mb-3">
-                    <input id="supervisionGroup" class="form-control" type="text" [value]="selectedGroup ? dsoNameService.getName(selectedGroup) : ''" disabled>
+                    <input id="supervisionGroup" aria-label="Supervision group" class="form-control" type="text" [value]="selectedGroup ? dsoNameService.getName(selectedGroup) : ''" disabled>
                     <ds-error *ngIf="isSubmitted && !selectedGroup" message="{{'supervision-group-selector.select.group.error' | translate}}"></ds-error>
                 </ng-container>
                 <ds-eperson-group-list [isListOfEPerson]="false"

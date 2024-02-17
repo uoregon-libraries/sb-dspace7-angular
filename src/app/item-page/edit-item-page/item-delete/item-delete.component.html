@@ -18,8 +18,8 @@
                              class="d-flex flex-row">
 
                             <div class="m-2" (click)="setSelected(type, !selected)">
-                                <label for="select_delete">
-                                    <input type="checkbox" [checked]="selected" id="select_delete">
+                                <label [for]="'select_' + type.id" aria-label="Select to delete">
+                                    <input type="checkbox" [checked]="selected" [id]="'select_' + type.id">
                                 </label>
                             </div>
 

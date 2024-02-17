@@ -7,6 +7,7 @@
            (ngModelChange)="selectCheckbox($event)">
     <input *ngIf="!selectionConfig.repeatable" class="form-check-input mt-2" type="radio"
            [name]="'radio' + index"
+           [attr.aria-label]="'radio' + index"
            [id]="'object' + index"
            [checked]="selected$ | async"
            (click)="selectRadio(!checked)">

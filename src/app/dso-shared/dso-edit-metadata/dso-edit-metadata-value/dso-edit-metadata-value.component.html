@@ -3,7 +3,7 @@
      [ngClass]="{ 'ds-warning': mdValue.reordered || mdValue.change === DsoEditMetadataChangeTypeEnum.UPDATE, 'ds-danger': mdValue.change === DsoEditMetadataChangeTypeEnum.REMOVE, 'ds-success': mdValue.change === DsoEditMetadataChangeTypeEnum.ADD, 'h-100': isOnlyValue }">
   <div class="flex-grow-1 ds-flex-cell ds-value-cell d-flex align-items-center" *ngVar="(mdRepresentation$ | async) as mdRepresentation" role="cell">
     <div class="dont-break-out preserve-line-breaks" *ngIf="!mdValue.editing && !mdRepresentation">{{ mdValue.newValue.value }}</div>
-    <textarea class="form-control" rows="5" *ngIf="mdValue.editing && !mdRepresentation" [(ngModel)]="mdValue.newValue.value"
+    <textarea class="form-control" aria-label="New value" rows="5" *ngIf="mdValue.editing && !mdRepresentation" [(ngModel)]="mdValue.newValue.value"
               [dsDebounce]="300" (onDebounce)="confirm.emit(false)"></textarea>
     <div class="d-flex" *ngIf="mdRepresentation">
       <a class="mr-2" target="_blank" [routerLink]="mdRepresentationItemRoute$ | async">{{ mdRepresentationName$ | async }}</a>
@@ -12,7 +12,7 @@
   </div>
   <div class="ds-flex-cell ds-lang-cell" role="cell">
     <div class="dont-break-out preserve-line-breaks" *ngIf="!mdValue.editing">{{ mdValue.newValue.language }}</div>
-    <input class="form-control" type="text" *ngIf="mdValue.editing" [(ngModel)]="mdValue.newValue.language"
+    <input class="form-control" aria-label="Confirm" type="text" *ngIf="mdValue.editing" [(ngModel)]="mdValue.newValue.language"
            [dsDebounce]="300" (onDebounce)="confirm.emit(false)" />
   </div>
   <div class="text-center ds-flex-cell ds-edit-cell" role="cell">

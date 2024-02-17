@@ -34,10 +34,11 @@
               <tr *ngFor="let field of fields?.page"
                   [ngClass]="{'table-primary' : isActive(field) | async}">
                 <td>
-                  <label class="mb-0" [attr.aria-label]="field">
+                  <label class="mb-0">
                     <input type="checkbox"
-                           [checked]="isSelected(field) | async"
-                           (change)="selectMetadataField(field, $event)">
+                            [attr.aria-label]="field"
+                            [checked]="isSelected(field) | async"
+                            (change)="selectMetadataField(field, $event)">
                   </label>
                 </td>
                 <td class="selectable-row" (click)="editField(field)">{{field.id}}</td>

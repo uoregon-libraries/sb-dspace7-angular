@@ -3,6 +3,7 @@
         <div class="col">
           <input class="form-control"
                  [class.is-invalid]="showErrorMessages"
+                 [attr.aria-label]="model.name"
                  [id]="id"
                  [name]="model.name"
                  [value]="modelValuesString"

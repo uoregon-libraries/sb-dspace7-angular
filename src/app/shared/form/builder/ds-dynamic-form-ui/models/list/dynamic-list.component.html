@@ -53,8 +53,8 @@
                (blur)="onBlur($event)"
                (focus)="onFocus($event)"/>
         <label class="custom-control-label"
-               [class.disabled]="model.disabled"
-               [ngClass]="model.layout.element?.control"
+                [class.disabled]="model.disabled"
+                [ngClass]="model.layout.element?.control"
                 [for]="item.id">
 
           <span [ngClass]="model.layout.element?.label" [innerHTML]="item.label"></span>

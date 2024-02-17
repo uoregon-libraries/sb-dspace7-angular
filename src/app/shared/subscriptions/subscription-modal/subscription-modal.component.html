@@ -15,7 +15,7 @@
           {{ 'subscriptions.modal.new-subscription-form.type.' + subscriptionType.key | translate }}:
         </legend>
         <div class="col-md-8">
-          <input type="hidden" formControlName="subscriptionId" [value]="subscriptionType?.value?.controls['subscriptionId'].value" >
+          <input type="hidden" aria-label="subscriptionId" formControlName="subscriptionId" [value]="subscriptionType?.value?.controls['subscriptionId'].value" >
           <div class="form-check" formGroupName="frequencies" *ngFor="let frequency of frequencyDefaultValues">
             <input type="checkbox" [id]="'checkbox-' + frequency" class="form-check-input" [formControlName]="frequency"/>
             <label class="form-check-label"

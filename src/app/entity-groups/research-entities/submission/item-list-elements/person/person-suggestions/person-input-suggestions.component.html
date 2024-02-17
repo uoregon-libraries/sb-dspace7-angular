@@ -5,6 +5,7 @@
       (dsClickOutside)="close();">
     <input #inputField type="text" [ngModel]="value" [name]="name"
            class="form-control suggestion_input"
+           aria-label="Input input value"
            (focus)="open()"
            (blur)="onSubmit(inputField.value)"
            (click)="open()"
@@ -12,7 +13,7 @@
            [dsDebounce]="debounceTime" (onDebounce)="find($event)"
            [placeholder]="placeholder"
            [ngModelOptions]="{standalone: true}" autocomplete="off"/>
-    <input type="submit" class="d-none"/>
+    <input type="submit" class="d-none" aria-label="Submit"/>
     <div class="autocomplete dropdown-menu" [ngClass]="{'show': (show | async) && isNotEmpty(suggestions)}">
         <div class="dropdown-list">
             <div *ngFor="let suggestionOption of suggestions">

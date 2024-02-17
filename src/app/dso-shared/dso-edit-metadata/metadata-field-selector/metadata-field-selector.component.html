@@ -1,6 +1,8 @@
 <div class="w-100 position-relative">
   <input type="text" #mdFieldInput
-         class="form-control" [ngClass]="{ 'is-invalid': showInvalid }"
+         class="form-control"
+         aria-label="Next field"
+         [ngClass]="{ 'is-invalid': showInvalid }"
          [value]="mdField"
          [formControl]="input"
          (focusin)="query$.next(mdField)"

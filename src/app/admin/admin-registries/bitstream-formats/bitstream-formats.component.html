@@ -29,10 +29,11 @@
             <tbody>
             <tr *ngFor="let bitstreamFormat of (bitstreamFormats | async)?.payload?.page">
               <td>
-                <label class="mb-0" aria-label="Format">
+                <label class="mb-0">
                   <input type="checkbox"
-                         [checked]="isSelected(bitstreamFormat) | async"
-                         (change)="selectBitStreamFormat(bitstreamFormat, $event)"
+                          aria-label="Bitstream format"
+                          [checked]="isSelected(bitstreamFormat) | async"
+                          (change)="selectBitStreamFormat(bitstreamFormat, $event)"
                   >
                 </label>
               </td>
