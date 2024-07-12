@@ -1,10 +1,6 @@
 <ng-container *ngIf="fileData">
   <div class="row">
-    <div class="col-md-2">
-      <!--ds-themed-thumbnail [thumbnail]="bitstreamsList[bitstreamKey].url | async"></ds-themed-thumbnail-->
-      <ds-themed-thumbnail [thumbnail]="fileData?.thumbnail"></ds-themed-thumbnail>
-    </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="float-left w-75">
         <h3>{{fileName}} <span class="text-muted">({{fileData?.sizeBytes | dsFileSize}})</span></h3>
       </div>

@@ -30,6 +30,18 @@ export class WorkspaceitemSectionUploadFileObject {
   };
 
   /**
+     * The file check sum
+     */
+  format: {
+    shortDescription: string,
+    description: string,
+    mimetype: string,
+    supportLevel: string,
+    internal: boolean,
+    type: string
+  };
+
+  /**
    * The file url
    */
   url: string;
