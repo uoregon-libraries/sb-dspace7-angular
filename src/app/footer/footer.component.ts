@@ -17,7 +17,7 @@ export class FooterComponent {
   /**
    * A boolean representing if to show or not the top footer container
    */
-  showTopFooter = false;
+  showTopFooter = true;
   showPrivacyPolicy = environment.info.enablePrivacyStatement;
   showEndUserAgreement = environment.info.enableEndUserAgreement;
   showSendFeedback$: Observable<boolean>;
@@ -35,4 +35,28 @@ export class FooterComponent {
     }
     return false;
   }
+
+
+  socialMedia = [
+    { 
+      name: 'Facebook',
+      icon: 'fab fa-facebook-f',
+      link: 'https://www.facebook.com/uolibraries'
+    },
+    {
+      name: 'YouTube',
+      icon: 'fab fa-youtube',
+      link: 'https://www.youtube.com/c/uolibrarieseugene'
+    },
+    {
+      name: 'Instagram',
+      icon: 'fab fa-instagram',
+      link: 'https://www.instagram.com/uolibraries/'
+    },
+    {
+      name: 'LinkedIn',
+      icon: 'fab fa-linkedin-in',
+      link: 'https://www.linkedin.com/'
+    }
+  ];
 }

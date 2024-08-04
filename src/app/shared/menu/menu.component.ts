@@ -106,10 +106,12 @@ export class MenuComponent implements OnInit, OnDestroy {
         distinctUntilChanged((x, y) => x.section.id === y.section.id)
       ).subscribe(({ section, component }) => {
         const nextMap = this.sectionMap$.getValue();
-        nextMap.set(section.id, {
-          injector: this.getSectionDataInjector(section),
-          component
-        });
+        if(!section.id.includes('communities_and_collections')) {
+          nextMap.set(section.id, {
+            injector: this.getSectionDataInjector(section),
+            component
+          });
+        }
         this.sectionMap$.next(nextMap);
       })
     );

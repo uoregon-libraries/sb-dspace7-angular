@@ -6,6 +6,7 @@ import { HomePageRoutingModule } from './home-page-routing.module';
 
 import { HomePageComponent } from './home-page.component';
 import { TopLevelCommunityListComponent } from './top-level-community-list/top-level-community-list.component';
+import { TopLevelCommunityGroupComponent } from './top-level-community-group/top-level-community-group.component';
 import { StatisticsModule } from '../statistics/statistics.module';
 import { ThemedHomeNewsComponent } from './home-news/themed-home-news.component';
 import { ThemedHomePageComponent } from './themed-home-page.component';
@@ -13,12 +14,15 @@ import { RecentItemListComponent } from './recent-item-list/recent-item-list.com
 import { JournalEntitiesModule } from '../entity-groups/journal-entities/journal-entities.module';
 import { ResearchEntitiesModule } from '../entity-groups/research-entities/research-entities.module';
 import { ThemedTopLevelCommunityListComponent } from './top-level-community-list/themed-top-level-community-list.component';
+import { ThemedTopLevelCommunityGroupComponent } from './top-level-community-group/themed-top-level-community-group.component';
 
 const DECLARATIONS = [
   HomePageComponent,
   ThemedHomePageComponent,
   TopLevelCommunityListComponent,
   ThemedTopLevelCommunityListComponent,
+  TopLevelCommunityGroupComponent,
+  ThemedTopLevelCommunityGroupComponent,
   ThemedHomeNewsComponent,
   HomeNewsComponent,
   RecentItemListComponent

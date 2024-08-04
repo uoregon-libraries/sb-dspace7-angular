@@ -1,49 +1,63 @@
 <footer class="text-lg-start">
   <div *ngIf="showTopFooter" class="top-footer">
     <!-- Grid container -->
-    <div class=" container p-4">
+    <div class="container p-3">
       <!--Grid row-->
       <div class="row">
-
         <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Footer Content</h5>
-
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">FIND MATERIALS</h5>
           <ul class="list-unstyled mb-0">
-            <li>
-              <a routerLink="./" class="">Lorem ipsum</a>
-            </li>
-            <li>
-              <a routerLink="./" class="">Ut facilisis</a>
-            </li>
-            <li>
-              <a routerLink="./" class="">Aenean sit</a>
-            </li>
+            <li><a routerLink="/">Library Search</a></li>
+            <li><a routerLink="/">Research Guides</a></li>
+            <li><a routerLink="/">Course Reserves sit</a></li>
+            <li><a routerLink="/">Databases A-Z</a></li>
           </ul>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Footer Content</h5>
-
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">INFORMATION FOR</h5>
           <ul class="list-unstyled mb-0">
-            <li>
-              <a routerLink="./" class="">Suspendisse potenti</a>
-            </li>
+            <li><a routerLink="/">Undergraduate Students</a></li>
+            <li><a routerLink="/">Graduate Students</a></li>
+            <li><a routerLink="/">Faculty, Staff and Instructors</a></li>
+            <li><a routerLink="/">Alumni, Community and Public</a></li>
           </ul>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer Content</h5>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">GET HELP</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a routerLink="/">Chat 24x7</a></li>
+            <li><a routerLink="/">Contact a Librarian</a></li>
+            <li><a routerLink="/">FAQs</a></li>
+          </ul>
+        </div>
+        <!--Grid column-->
 
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">UO LIBRARIES</h5>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-            voluptatem veniam, est atque cumque eum delectus sint!
+            1501 Kincaid Street<br>
+            Eugene, OR 97403<br>
+            P: 541-346-3053<br>
+            F: 541-346-3485
           </p>
+          <!-- Social Media -->
+          <div class="social-icons">
+            <a *ngFor="let social of socialMedia"
+               [href]="social.link"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-icon">
+              <i [class]="social.icon"></i>
+            </a>
+          </div>
         </div>
         <!--Grid column-->
       </div>

@@ -1,0 +1,74 @@
+// temporary fix for bootstrap 4 beta btn color issue
+.btn-secondary {
+  background-color: var(--bs-input-bg);
+  color: var(--bs-input-color);
+}
+
+.scope-button {
+  max-width: var(--ds-search-form-scope-max-width);
+}
+
+:host {
+}
+
+
+/* search-bar.component.scss */
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-image: url('../../../assets/images/uo-lib.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .overlay {
+    width: 70%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    // border-radius: 25px;
+    margin-top: -5px;
+  }
+  
+  .overlay h1 {
+    font-weight: 800;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container input {
+    // width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .search-container button {
+    // padding: 10px;
+    background-color: #f7f9fb;
+    color: black;
+    border: none;
+    // border-radius: 5px;
+    cursor: pointer;
+    margin-left: -0.5rem;
+  }
+  
+  .search-container button:hover {
+    // background-color: #0056b3;
+  }

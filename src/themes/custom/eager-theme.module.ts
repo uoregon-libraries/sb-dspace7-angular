@@ -54,7 +54,7 @@ import {
   ItemSearchResultListElementComponent
 } from './app/shared/object-list/search-result-list-element/item-search-result/item-types/item/item-search-result-list-element.component';
 import { TopLevelCommunityListComponent } from './app/home-page/top-level-community-list/top-level-community-list.component';
-
+import { TopLevelCommunityGroupComponent } from './app/home-page/top-level-community-group/top-level-community-group.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -75,6 +75,7 @@ const ENTRY_COMPONENTS = [
   PublicationSidebarSearchListElementComponent,
   ItemSearchResultListElementComponent,
   TopLevelCommunityListComponent,
+  TopLevelCommunityGroupComponent,
 ];
 
 const DECLARATIONS = [

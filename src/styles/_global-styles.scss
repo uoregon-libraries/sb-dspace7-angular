@@ -30,6 +30,10 @@ body {
     margin-bottom: var(--ds-content-spacing);
 }
 
+.main-content-adjust {
+    margin-top: -25px !important;
+}
+
 .alert.hide {
     padding: 0;
     margin: 0;
