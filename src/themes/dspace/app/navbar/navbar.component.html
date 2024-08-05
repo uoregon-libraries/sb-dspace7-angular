@@ -12,7 +12,7 @@
         </li>
         <li *ngFor="let item of navItems">
           <div class="nav-item navbar-section text-md-center navbar-section-adjust">
-            <a class="navbar-nav nav-item nav-link nav-link-adjust" href="#" title="{{ item }}">{{ item }}</a>
+            <a class="navbar-nav nav-item nav-link nav-link-adjust" routerLink="{{ item.path }}" title="{{ item.label }}">{{ item.label }}</a>
           </div>
         </li>
         <ng-container *ngFor="let section of (sections | async)">

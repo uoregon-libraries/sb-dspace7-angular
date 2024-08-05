@@ -52,6 +52,7 @@ import { SearchPageComponent } from './app/search-page/search-page.component';
 import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
 import { SearchFormComponent } from './app/shared/search-form/search-form.component';
 import { EndUserAgreementComponent } from './app/info/end-user-agreement/end-user-agreement.component';
+import { ContactUsComponent } from './app/info/contact-us/contact-us.component';
 import { PageNotFoundComponent } from './app/pagenotfound/pagenotfound.component';
 import { ObjectNotFoundComponent } from './app/lookup-by-id/objectnotfound/objectnotfound.component';
 import { ForbiddenComponent } from './app/forbidden/forbidden.component';
@@ -167,6 +168,7 @@ const DECLARATIONS = [
   ConfigurationSearchPageComponent,
   SearchFormComponent,
   EndUserAgreementComponent,
+  ContactUsComponent,
   PageNotFoundComponent,
   ObjectNotFoundComponent,
   ForbiddenComponent,

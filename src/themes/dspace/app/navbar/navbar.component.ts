@@ -13,10 +13,10 @@ import { slideMobileNav } from '../../../../app/shared/animations/slide';
 })
 export class NavbarComponent extends BaseComponent {
 
-  navItems: string[] = [
-    'About',
-    'Author Profiles',
-    'Contact Us'
+  navItems = [
+    { path: './', label: 'About' },
+    { path: './', label: 'Author Profiles' },
+    { path: 'info/contact-us', label: 'Contact Us' }
   ];
 
 }

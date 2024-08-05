@@ -61,9 +61,11 @@ import { SharedBrowseByModule } from '../../app/shared/browse-by/shared-browse-b
 import { ItemVersionsModule } from '../../app/item-page/versions/item-versions.module';
 import { ItemSharedModule } from 'src/app/item-page/item-shared.module';
 import { CommunityListComponent } from './app/community-list-page/community-list/community-list.component';
+import { ContactUsComponent } from './app/info/contact-us/contact-us.component';
 
 const DECLARATIONS = [
   CommunityListComponent,
+  ContactUsComponent,
 ];
 
 @NgModule({
