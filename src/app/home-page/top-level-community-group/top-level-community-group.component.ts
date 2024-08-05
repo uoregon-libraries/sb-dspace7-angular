@@ -106,17 +106,10 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
   }
 
   items = [
-    { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: 'c31cddcc-2224-49cf-bb6e-3cfc0e812ff4' },
-    { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: 'e781c503-6d9f-49b0-923b-2a96a35c90e2' },
-    { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: '400686ec-3d2e-4824-8d38-1627f44df743' },
-    { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: '400686ec-3d2e-4824-8d38-1627f44df743' }
-  ];
-
-  items1 = [
-    { icon: 'fas fa-graduation-cap', label: 'Theses & Dissertations', uuid: 'c31cddcc-2224-49cf-bb6e-3cfc0e812ff4' },
-    { icon: 'fas fa-briefcase', label: 'University Scholarship', uuid: 'e781c503-6d9f-49b0-923b-2a96a35c90e2' },
-    { icon: 'fas fa-globe', label: 'Open Publications', uuid: '400686ec-3d2e-4824-8d38-1627f44df743' },
-    { icon: 'fas fa-archive', label: 'University Archives', uuid: '400686ec-3d2e-4824-8d38-1627f44df743' }
+    { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: '' },
+    { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: '' },
+    { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: '' },
+    { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: '' }
   ];
 
 }
