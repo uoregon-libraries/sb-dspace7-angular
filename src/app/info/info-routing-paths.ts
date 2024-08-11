@@ -4,6 +4,7 @@ export const END_USER_AGREEMENT_PATH = 'end-user-agreement';
 export const PRIVACY_PATH = 'privacy';
 export const FEEDBACK_PATH = 'feedback';
 export const CONTACT_US_PATH = 'contact-us';
+export const ABOUT_PATH = 'about';
 
 export function getEndUserAgreementPath() {
     return getSubPath(END_USER_AGREEMENT_PATH);
@@ -19,6 +20,10 @@ export function getFeedbackPath() {
 
 export function getContactPath() {
     return getSubPath(CONTACT_US_PATH);
+}
+
+export function getAboutPath() {
+    return getSubPath(ABOUT_PATH);
 }
 
 function getSubPath(path: string) {

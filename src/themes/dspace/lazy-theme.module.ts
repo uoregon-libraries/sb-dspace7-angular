@@ -62,10 +62,12 @@ import { ItemVersionsModule } from '../../app/item-page/versions/item-versions.m
 import { ItemSharedModule } from 'src/app/item-page/item-shared.module';
 import { CommunityListComponent } from './app/community-list-page/community-list/community-list.component';
 import { ContactUsComponent } from './app/info/contact-us/contact-us.component';
+import { AboutComponent } from './app/info/about/about.component';
 
 const DECLARATIONS = [
   CommunityListComponent,
   ContactUsComponent,
+  AboutComponent,
 ];
 
 @NgModule({

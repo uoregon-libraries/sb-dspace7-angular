@@ -16,6 +16,9 @@ import { FeedbackGuard } from '../core/feedback/feedback.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactUsContentComponent } from './contact-us/contact-us-content/contact-us-content.component';
 import { ThemedContactUsComponent } from './contact-us/themed-contact-us.component';
+import { AboutComponent } from './about/about.component';
+import { AboutContentComponent } from './about/about-content/about-content.component';
+import { ThemedAboutComponent } from './about/themed-about.component';
 
 const DECLARATIONS = [
   EndUserAgreementComponent,
@@ -30,7 +33,10 @@ const DECLARATIONS = [
   ThemedFeedbackComponent,
   ContactUsComponent,
   ContactUsContentComponent,
-  ThemedContactUsComponent
+  ThemedContactUsComponent,
+  AboutComponent,
+  AboutContentComponent,
+  ThemedAboutComponent
 ];
 
 @NgModule({

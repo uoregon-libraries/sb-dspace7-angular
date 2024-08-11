@@ -14,7 +14,7 @@ import { slideMobileNav } from '../../../../app/shared/animations/slide';
 export class NavbarComponent extends BaseComponent {
 
   navItems = [
-    { path: './', label: 'About' },
+    { path: 'info/about', label: 'About' },
     { path: './', label: 'Author Profiles' },
     { path: 'info/contact-us', label: 'Contact Us' }
   ];

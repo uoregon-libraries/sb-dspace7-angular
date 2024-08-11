@@ -1868,12 +1868,6 @@
 
   "info.privacy.title": "Privacy Statement",
 
-  "info.contact-us.breadcrumbs": "Contact Us",
-
-  "info.contact-us.head": "Contact Us",
-
-  "info.contact-us.title": "Contact Us",
-
   "info.feedback.breadcrumbs": "Feedback",
 
   "info.feedback.head": "Feedback",
@@ -5239,4 +5233,16 @@
   "access-control-option-end-date": "Grant access until",
 
   "access-control-option-end-date-note": "Select the date until which the related access condition is applied",
+
+  "info.contact-us.breadcrumbs": "Contact Us",
+
+  "info.contact-us.head": "Contact Us",
+
+  "info.contact-us.title": "Contact Us",
+
+  "info.about.breadcrumbs": "About",
+
+  "info.about.head": "About",
+
+  "info.about.title": "About",
 }
