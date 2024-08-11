@@ -18,5 +18,8 @@
             <ng-container
                     *ngComponentOutlet="(sectionMap$ | async).get(subSection.id).component; injector: (sectionMap$ | async).get(subSection.id).injector;"></ng-container>
         </ng-container>
+        <div *ngFor="let item of items">
+            <a class="navbar-nav nav-item nav-link nav-link-adjust" routerLink="{{ item.path }}" title="{{ item.label }}">{{ item.label }}</a>
+        </div>
     </ul>
 </div>

@@ -23,4 +23,12 @@
   "info.about.breadcrumbs": "About",
   "info.about.head": "About",
   "info.about.title": "About",
+  "browse.comcol.by.dateaccessioned": "By Most Recent",
+  "menu.section.browse_global_by_dateaccessioned": "By Most Recent",
+  "browse.metadata.dateaccessioned": "Most Recent",
+  "browse.metadata.dateaccessioned.breadcrumbs": "Browse by Most Recent",
+  "browse.comcol.by.itemtype": "By Content Type",
+  "menu.section.browse_global_by_itemtype": "By Content Type",
+  "browse.metadata.itemtype": "Content Type",
+  "browse.metadata.itemtype.breadcrumbs": "Browse By Content Type",
 }

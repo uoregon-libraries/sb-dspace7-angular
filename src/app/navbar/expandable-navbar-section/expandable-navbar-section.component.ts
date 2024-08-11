@@ -80,4 +80,8 @@ export class ExpandableNavbarSectionComponent extends NavbarSectionComponent imp
       }
     });
   }
+
+  items = [
+    { path: 'community-list', label: 'By Community' }
+  ]
 }
