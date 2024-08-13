@@ -429,7 +429,7 @@ export class DefaultAppConfig implements AppConfig {
 
   // Configuration that determines the metadata sorting of community and collection edition and creation when there are not a search query.
   comcolSelectionSort: DiscoverySortConfig = {
-    sortField:'dc.date.accessioned',
-    sortDirection:'DESC',
+    sortField:'dc.title',
+    sortDirection:'ASC',
   };
 }

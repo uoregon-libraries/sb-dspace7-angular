@@ -36,6 +36,7 @@ export class BrowseByDatePageComponent extends BrowseByMetadataPageComponent {
    * The default metadata keys to use for determining the lower limit of the StartsWith dropdown options
    */
   defaultMetadataKeys = ['dc.date.issued'];
+  preferMetadataKeys = ['dc.date.accessioned'];
 
   public constructor(protected route: ActivatedRoute,
                      protected browseService: BrowseService,
@@ -50,7 +51,7 @@ export class BrowseByDatePageComponent extends BrowseByMetadataPageComponent {
   }
 
   ngOnInit(): void {
-    const sortConfig = new SortOptions('default', SortDirection.ASC);
+    const sortConfig = new SortOptions('default', SortDirection.DESC);
     this.startsWithType = StartsWithType.date;
     // include the thumbnail configuration in browse search options
     this.updatePage(getBrowseSearchOptions(this.defaultBrowseId, this.paginationConfig, sortConfig, this.fetchThumbnails));
@@ -63,7 +64,7 @@ export class BrowseByDatePageComponent extends BrowseByMetadataPageComponent {
           return [Object.assign({}, routeParams, queryParams, data), currentPage, currentSort];
         })
       ).subscribe(([params, currentPage, currentSort]: [Params, PaginationComponentOptions, SortOptions]) => {
-        const metadataKeys = params.browseDefinition ? params.browseDefinition.metadataKeys : this.defaultMetadataKeys;
+        const metadataKeys = params.browseDefinition ? params.browseDefinition.metadataKeys : this.preferMetadataKeys;
         this.browseId = params.id || this.defaultBrowseId;
         this.startsWith = +params.startsWith || params.startsWith;
         const searchOptions = browseParamsToOptions(params, currentPage, currentSort, this.browseId, this.fetchThumbnails);
@@ -85,7 +86,7 @@ export class BrowseByDatePageComponent extends BrowseByMetadataPageComponent {
    * @param scope           The scope under which to fetch the earliest item for
    */
   updateStartsWithOptions(definition: string, metadataKeys: string[], scope?: string) {
-    const firstItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.ASC);
+    const firstItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.DESC);
     const lastItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.DESC);
     this.subs.push(
       observableCombineLatest([firstItemRD, lastItemRD]).subscribe(([firstItem, lastItem]) => {

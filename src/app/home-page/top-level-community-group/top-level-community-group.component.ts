@@ -106,10 +106,10 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
   }
 
   items = [
-    { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: '' },
-    { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: '' },
-    { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: '' },
-    { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: '' }
+    { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: 'communities/115f1e16-b12e-4f61-9443-b8f18c77dec5' },
+    { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: 'communities/2319638a-59a1-4449-81aa-1965eed0d3ac' },
+    { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: 'communities/c7483469-7394-469b-a8ba-0d4edb61c069' },
+    { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: 'communities/1de5490f-eecd-4392-8d82-182232a59c82' }
   ];
 
 }
