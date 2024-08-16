@@ -68,6 +68,7 @@ import { MetadataService } from './metadata/metadata.service';
 import { RegistryService } from './registry/registry.service';
 import { RoleService } from './roles/role.service';
 import { FeedbackDataService } from './feedback/feedback-data.service';
+import { ContactusDataService } from './contactus/contactus-data.service';
 
 import { ServerResponseService } from './services/server-response.service';
 import { NativeWindowFactory, NativeWindowService } from './services/window.service';
@@ -299,6 +300,7 @@ const PROVIDERS = [
   SequenceService,
   GroupDataService,
   FeedbackDataService,
+  ContactusDataService,
   ResearcherProfileDataService,
   ProfileClaimService,
   OrcidAuthService,

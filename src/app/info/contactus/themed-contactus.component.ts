@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
 import { ThemedComponent } from '../../shared/theme-support/themed.component';
-import { ContactUsComponent } from './contact-us.component';
+import { ContactusComponent } from './contactus.component';
 
 /**
- * Themed wrapper for ContactUsComponent
+ * Themed wrapper for ContactusComponent
  */
 @Component({
-  selector: 'ds-themed-contact-us',
+  selector: 'ds-themed-contactus',
   styleUrls: [],
   templateUrl: '../../shared/theme-support/themed.component.html',
 })
-export class ThemedContactUsComponent extends ThemedComponent<ContactUsComponent> {
+export class ThemedContactusComponent extends ThemedComponent<ContactusComponent> {
   protected getComponentName(): string {
-    return 'ContactUsComponent';
+    return 'ContactusComponent';
   }
 
   protected importThemedComponent(themeName: string): Promise<any> {
-    return import(`../../../themes/${themeName}/app/info/contact-us/contact-us.component`);
+    return import(`../../../themes/${themeName}/app/info/contactus/contactus.component`);
   }
 
   protected importUnthemedComponent(): Promise<any> {
-    return import(`./contact-us.component`);
+    return import(`./contactus.component`);
   }
 
 }

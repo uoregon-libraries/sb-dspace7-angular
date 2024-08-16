@@ -1,0 +1,77 @@
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xs-12 col-sm-12 col-md-9 main-content">
+    <form class="primary" [formGroup]="contactusForm" (ngSubmit)="createContactus()">
+      <h2>{{ 'info.contactus.head' | translate }}</h2>
+      <fieldset class="col p-0">
+        <div class="row">
+          <div class="control-group col-sm-12">
+            <label class="control-label" for="email">{{ 'info.contactus.email-label' | translate }}&nbsp;</label>
+            <input id="email" class="form-control" name="email" type="text" value="" formControlName="email" autofocus="autofocus" title="{{ 'info.contactus.email_help' | translate }}">
+          </div>
+        </div>
+        <ng-container *ngIf="contactusForm.controls.email.invalid && (contactusForm.controls.email.dirty || contactusForm.controls.email.touched)"
+          class="alert">
+          <ds-error *ngIf="contactusForm.controls.email.errors?.required" message="{{'info.contactus.error.email.required' | translate}}"></ds-error>
+          <ds-error *ngIf="contactusForm.controls.email.errors?.pattern" message="{{'info.contactus.error.email.required' | translate}}"></ds-error>
+        </ng-container>
+
+        <div class="row">
+          <div class="control-group col-sm-12">
+            <label class="control-label" for="senderName">{{ 'info.contactus.name-label' | translate }}&nbsp;</label>
+            <input id="senderName" class="form-control" name="senderName" type="text" value="" formControlName="senderName" autofocus="autofocus" title="{{ 'info.contactus.name_help' | translate }}">
+          </div>
+        </div>
+        <ng-container *ngIf="contactusForm.controls.email.invalid && (contactusForm.controls.email.dirty || contactusForm.controls.email.touched)"
+          class="alert">
+          <ds-error *ngIf="contactusForm.controls.senderName.errors?.required" message="{{'info.contactus.error.senderName.required' | translate}}"></ds-error>
+          <ds-error *ngIf="contactusForm.controls.senderName.errors?.pattern" message="{{'info.contactus.error.senderName.required' | translate}}"></ds-error>
+        </ng-container>
+
+        <div class="form-group section-color">
+          <label>Relationship (if any) to University of Oregon *</label>
+          <div *ngFor="let relationship of relationships">
+            <label>
+              <input type="radio" name="relationship" [value]="relationship" formControlName="relationship">
+              {{ relationship }}
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="relationship">If other, please identify</label>
+          <div class="control-group" *ngIf="!((contactusForm.get('relationship').value) && (contactusForm.get('relationship').value==='Student'||contactusForm.get('relationship').value==='Faculty/Clinical'||contactusForm.get('relationship').value==='Staff Member'||contactusForm.get('relationship').value==='Community Member'))">            
+            <input type="text" class="form-control" name="relationship" formControlName="relationship" autofocus="autofocus" title="{{ 'info.contactus.other_help' | translate }}">
+          </div>
+        </div>
+
+        <div>
+          <label for="related">Is your question related to the University of Oregon Digital Repository? *</label>
+          <select name="related" id="related" formControlName="related" class="form-control" aria-label="repository related">
+            <option value="">Select One</option>
+            <option *ngFor="let option of repositoryOptions" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="control-group col-sm-12">
+            <label class="control-label" for="comments">{{ 'info.contactus.message' | translate }}:&nbsp;</label>
+            <textarea id="comments" formControlName="message" class="form-control" name="message" cols="20" rows="5"> </textarea>
+          </div>
+        </div>
+
+        <ng-container *ngIf="contactusForm.controls.message.invalid && (contactusForm.controls.message.dirty || contactusForm.controls.message.touched)"
+          class="alert">
+          <ds-error *ngIf="contactusForm.controls.message.errors?.required" message="{{'info.contactus.error.message.required' | translate}}"></ds-error>
+        </ng-container>
+
+        <p>Fields marked with * are required.</p>
+
+        <div class="row py-2">
+          <div class="control-group col-sm-12">
+            <button [disabled]="!contactusForm.valid" class="btn btn-primary" name="submit" type="submit">{{ 'info.contactus.send' | translate }}</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

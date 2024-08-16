@@ -52,7 +52,6 @@ import { SearchPageComponent } from './app/search-page/search-page.component';
 import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
 import { SearchFormComponent } from './app/shared/search-form/search-form.component';
 import { EndUserAgreementComponent } from './app/info/end-user-agreement/end-user-agreement.component';
-import { ContactUsComponent } from './app/info/contact-us/contact-us.component';
 import { AboutComponent } from './app/info/about/about.component';
 import { PageNotFoundComponent } from './app/pagenotfound/pagenotfound.component';
 import { ObjectNotFoundComponent } from './app/lookup-by-id/objectnotfound/objectnotfound.component';
@@ -81,6 +80,7 @@ import { WorkflowItemDeleteComponent } from './app/workflowitems-edit-page/workf
 import { WorkflowItemSendBackComponent } from './app/workflowitems-edit-page/workflow-item-send-back/workflow-item-send-back.component';
 import { BreadcrumbsComponent } from './app/breadcrumbs/breadcrumbs.component';
 import { FeedbackComponent } from './app/info/feedback/feedback.component';
+import { ContactusComponent } from './app/info/contactus/contactus.component';
 import { CommunityListComponent } from './app/community-list-page/community-list/community-list.component';
 
 import { ComcolPageHandleComponent } from './app/shared/comcol-page-handle/comcol-page-handle.component';
@@ -131,6 +131,7 @@ import { MetadataRepresentationListComponent } from './app/item-page/simple/meta
 import { DsDynamicLookupRelationSearchTabComponent } from './app/shared/form/builder/ds-dynamic-form-ui/relation-lookup-modal/search-tab/dynamic-lookup-relation-search-tab.component';
 import { DsDynamicLookupRelationExternalSourceTabComponent } from './app/shared/form/builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/dynamic-lookup-relation-external-source-tab.component';
 import { FeedbackFormComponent } from './app/info/feedback/feedback-form/feedback-form.component';
+import { ContactusFormComponent } from './app/info/contactus/contactus-form/contactus-form.component';
 import {
   ItemPageTitleFieldComponent
 } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
@@ -169,7 +170,6 @@ const DECLARATIONS = [
   ConfigurationSearchPageComponent,
   SearchFormComponent,
   EndUserAgreementComponent,
-  ContactUsComponent,
   AboutComponent,
   PageNotFoundComponent,
   ObjectNotFoundComponent,
@@ -201,6 +201,8 @@ const DECLARATIONS = [
   BreadcrumbsComponent,
   FeedbackComponent,
   FeedbackFormComponent,
+  ContactusComponent,
+  ContactusFormComponent,
   CommunityListComponent,
   ComcolPageHandleComponent,
   AuthNavMenuComponent,

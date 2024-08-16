@@ -61,12 +61,14 @@ import { SharedBrowseByModule } from '../../app/shared/browse-by/shared-browse-b
 import { ItemVersionsModule } from '../../app/item-page/versions/item-versions.module';
 import { ItemSharedModule } from 'src/app/item-page/item-shared.module';
 import { CommunityListComponent } from './app/community-list-page/community-list/community-list.component';
-import { ContactUsComponent } from './app/info/contact-us/contact-us.component';
+import { ContactusComponent } from './app/info/contactus/contactus.component';
+import { ContactusFormComponent } from './app/info/contactus/contactus-form/contactus-form.component';
 import { AboutComponent } from './app/info/about/about.component';
 
 const DECLARATIONS = [
   CommunityListComponent,
-  ContactUsComponent,
+  ContactusComponent,
+  ContactusFormComponent,
   AboutComponent,
 ];
 

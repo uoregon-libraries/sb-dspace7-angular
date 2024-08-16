@@ -16,7 +16,7 @@ export class NavbarComponent extends BaseComponent {
   navItems = [
     { path: 'info/about', label: 'About' },
     { path: './', label: 'Author Profiles' },
-    { path: 'info/feedback', label: 'Contact Us' }
+    { path: 'info/contactus', label: 'Contact Us' }
   ];
 
 }

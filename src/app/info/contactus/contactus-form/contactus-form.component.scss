@@ -1,0 +1,27 @@
+ds-error{
+  color:red;
+}
+
+.btn-primary{
+  background-color: #0c4679 !important;
+}
+
+.form-group {
+  margin-top: 1rem !important;
+}
+
+.form-group.section-color {
+  background-color: #f2f1ef;
+}
+button {
+  background-color: #337ab7;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #cccccc;
+}

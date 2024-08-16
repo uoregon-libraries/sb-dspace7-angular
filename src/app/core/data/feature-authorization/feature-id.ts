@@ -28,6 +28,7 @@ export enum FeatureID {
   CanCreateVersion = 'canCreateVersion',
   CanViewUsageStatistics = 'canViewUsageStatistics',
   CanSendFeedback = 'canSendFeedback',
+  CanSendContactus = 'canSendContactus',
   CanClaimItem = 'canClaimItem',
   CanSynchronizeWithORCID = 'canSynchronizeWithORCID',
   CanSubmit = 'canSubmit',

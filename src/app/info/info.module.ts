@@ -13,9 +13,11 @@ import { FeedbackFormComponent } from './feedback/feedback-form/feedback-form.co
 import { ThemedFeedbackFormComponent } from './feedback/feedback-form/themed-feedback-form.component';
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import { FeedbackGuard } from '../core/feedback/feedback.guard';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { ContactUsContentComponent } from './contact-us/contact-us-content/contact-us-content.component';
-import { ThemedContactUsComponent } from './contact-us/themed-contact-us.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { ContactusFormComponent } from './contactus/contactus-form/contactus-form.component';
+import { ThemedContactusFormComponent } from './contactus/contactus-form/themed-contactus-form.component';
+import { ThemedContactusComponent } from './contactus/themed-contactus.component';
+import { ContactusGuard } from '../core/contactus/contactus.guard';
 import { AboutComponent } from './about/about.component';
 import { AboutContentComponent } from './about/about-content/about-content.component';
 import { ThemedAboutComponent } from './about/themed-about.component';
@@ -31,9 +33,10 @@ const DECLARATIONS = [
   FeedbackFormComponent,
   ThemedFeedbackFormComponent,
   ThemedFeedbackComponent,
-  ContactUsComponent,
-  ContactUsContentComponent,
-  ThemedContactUsComponent,
+  ContactusComponent,
+  ContactusFormComponent,
+  ThemedContactusFormComponent,
+  ThemedContactusComponent,
   AboutComponent,
   AboutContentComponent,
   ThemedAboutComponent
@@ -51,7 +54,7 @@ const DECLARATIONS = [
   exports: [
     ...DECLARATIONS
   ],
-  providers: [FeedbackGuard]
+  providers: [FeedbackGuard, ContactusGuard]
 })
 export class InfoModule {
 }

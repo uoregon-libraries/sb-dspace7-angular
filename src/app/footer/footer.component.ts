@@ -21,12 +21,14 @@ export class FooterComponent {
   showPrivacyPolicy = environment.info.enablePrivacyStatement;
   showEndUserAgreement = environment.info.enableEndUserAgreement;
   showSendFeedback$: Observable<boolean>;
+  showSendContactus$: Observable<boolean>;
 
   constructor(
     @Optional() private cookies: KlaroService,
     private authorizationService: AuthorizationDataService,
   ) {
     this.showSendFeedback$ = this.authorizationService.isAuthorized(FeatureID.CanSendFeedback);
+    this.showSendContactus$ = this.authorizationService.isAuthorized(FeatureID.CanSendContactus);
   }
 
   showCookieSettings() {
