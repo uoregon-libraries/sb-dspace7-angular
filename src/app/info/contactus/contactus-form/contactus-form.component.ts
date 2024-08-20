@@ -30,7 +30,7 @@ export class ContactusFormComponent implements OnInit {
    */
   contactusForm = this.fb.group({
     email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-    senderName: ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z ]+$')]],
+    senderName: ['', Validators.required],
     message: ['', Validators.required],
     relationship: ['', Validators.required],
     related: ['', Validators.required],

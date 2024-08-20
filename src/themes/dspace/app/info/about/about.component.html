@@ -1,0 +1,18 @@
+<!-- about.component.html -->
+<div class="about-container">
+    <h1>{{ title }}</h1>
+
+    <p>Scholars' Bank is an open access digital archive for the scholarly and creative output of the University of Oregon community. Its mission is to preserve and disseminate the intellectual and creative output of the University of Oregon's faculty, staff, and students.</p>
+
+    <p>Faculty, staff, and graduate students can deposit their research and scholarship—unpublished and, in many cases, published— into Scholars' Bank. Departments can use Scholars' Bank to distribute their working papers, technical reports, or other research material.</p>
+
+    <p>If you are interested in starting a community or contributing to an existing community, please contact us.</p>
+
+    <h2>The archive has the following characteristics:</h2>
+
+    <ul>
+      <li *ngFor="let item of characteristics">{{ item }}</li>
+    </ul>
+
+    <p>If you have any questions, check Frequently Asked Questions or contact the Institutional Repository Manager for assistance. Scholars' Bank is maintained through the Department of Open Research.</p>
+</div>

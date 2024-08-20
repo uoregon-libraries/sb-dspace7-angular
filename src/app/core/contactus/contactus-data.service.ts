@@ -31,7 +31,7 @@ export class ContactusDataService extends IdentifiableDataService<Contactus> imp
     protected halService: HALEndpointService,
     protected notificationsService: NotificationsService,
   ) {
-    super('contactuss', requestService, rdbService, objectCache, halService);
+    super('contactuses', requestService, rdbService, objectCache, halService);
 
     this.createData = new CreateDataImpl(this.linkPath, requestService, rdbService, objectCache, halService, notificationsService, this.responseMsToLive);
   }
