@@ -1,0 +1,23 @@
+/* src/assets/fonts/united-sans.scss */
+@font-face {
+    font-family: 'United Sans';
+    src: url('../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'United Sans';
+    src: url('../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'United Sans';
+    src: url('../fonts/UnitedSerifRgBd.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  /* Add more @font-face rules for other weights and styles if available */

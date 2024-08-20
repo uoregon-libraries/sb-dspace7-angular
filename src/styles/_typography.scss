@@ -1,0 +1,20 @@
+// In _typography.scss
+$font-family: 'United Sans', sans-serif;
+
+body {
+  font-family: $font-family;
+}
+
+a, h1, h2, h3, h4, h5, h6, footer {
+  font-family: $font-family;
+}
+
+.united-sans-regular {
+  font-family: $font-family;
+  font-weight: normal;
+}
+
+.united-sans-bold {
+  font-family: $font-family;
+  font-weight: bold;
+}
