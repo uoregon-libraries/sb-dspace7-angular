@@ -12,8 +12,8 @@
         </li>
         <li *ngFor="let item of navItems">
           <div class="nav-item navbar-section text-md-center navbar-section-adjust">
-            <!-- <a *ngIf="item.label!=='About'" class="navbar-nav nav-item nav-link nav-link-adjust" routerLink="{{ item.path }}" title="{{ item.label }}">{{ item.label }}</a>
-            <a *ngIf="item.label==='About'" class="navbar-nav nav-item nav-link nav-link-adjust" href="https://library.uoregon.edu/department-of-open-research/scholars-bank/scholars-bank-overview" title="{{ item.label }}">{{ item.label }}</a> -->
+            <a class="navbar-nav nav-item nav-link nav-link-adjust" routerLink="{{ item.path }}" title="{{ item.label }}">{{ item.label }}</a>
+            <!-- <a *ngIf="item.label==='About'" class="navbar-nav nav-item nav-link nav-link-adjust" href="https://library.uoregon.edu/department-of-open-research/scholars-bank/scholars-bank-overview" title="{{ item.label }}">{{ item.label }}</a> -->
           </div>
         </li>
         <ng-container *ngFor="let section of (sections | async)">

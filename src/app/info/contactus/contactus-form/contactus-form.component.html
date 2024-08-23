@@ -64,11 +64,18 @@
           <ds-error *ngIf="contactusForm.controls.message.errors?.required" message="{{'info.contactus.error.message.required' | translate}}"></ds-error>
         </ng-container>
 
+        <div class="row">
+          <div class="control-group col-sm-12">
+            <label class="control-label" for="page">{{ 'info.contactus.page-label' | translate }}&nbsp;</label>
+            <input id="page" readonly class="form-control" name="page" type="text" value="" formControlName="page" autofocus="autofocus" title="{{ 'info.contactus.page_help' | translate }}">
+            <small class="text-muted">{{ 'info.contactus.page_help' | translate }}</small>
+          </div>
+        </div>
         <p>Fields marked with * are required.</p>
 
         <div class="row py-2">
           <div class="control-group col-sm-12">
-            <button [disabled]="!contactusForm.valid" type="submit">{{ 'info.contactus.send' | translate }}</button>
+            <button type="submit" [disabled]="!contactusForm.valid">{{ 'info.contactus.send' | translate }}</button>
           </div>
         </div>
       </fieldset>
