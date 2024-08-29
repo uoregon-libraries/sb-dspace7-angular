@@ -97,12 +97,45 @@ export class MenuResolver implements Resolve<boolean> {
       {
         id: `browse_global_communities_and_collections`,
         active: false,
-        visible: true,
+        visible: false,
         index: 0,
         model: {
           type: MenuItemType.LINK,
           text: `menu.section.browse_global_communities_and_collections`,
           link: `/community-list`
+        } as LinkMenuItemModel
+      },
+      {
+        id: `browse_global_about`,
+        active: false,
+        visible: true,
+        index: 3,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.browse_global_about`,
+          link: `info/about`
+        } as LinkMenuItemModel
+      },
+      {
+        id: `browse_global_author_profiles`,
+        active: false,
+        visible: false,
+        index: 4,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.browse_global_author_profiles`,
+          link: `/`
+        } as LinkMenuItemModel
+      },
+      {
+        id: `browse_global_contactus`,
+        active: false,
+        visible: true,
+        index: 5,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.browse_global_contactus`,
+          link: `info/contactus`
         } as LinkMenuItemModel
       }
     ];
@@ -135,8 +168,7 @@ export class MenuResolver implements Resolve<boolean> {
                 type: MenuItemType.TEXT,
                 text: 'menu.section.browse_global'
               } as TextMenuItemModel,
-            }
-          );
+            });
         }
         menuList.forEach((menuSection) => this.menuService.addSection(MenuID.PUBLIC, Object.assign(menuSection, {
           shouldPersistOnRouteChange: true
@@ -145,6 +177,7 @@ export class MenuResolver implements Resolve<boolean> {
 
     return this.waitForMenu$(MenuID.PUBLIC);
   }
+
 
   /**
    * Initialize all menu sections and items for {@link MenuID.ADMIN}

@@ -10,14 +10,15 @@
         <li *ngIf="(isXsOrSm$ | async) && (isAuthenticated$ | async)">
             <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
         </li>
-        <li *ngFor="let item of navItems">
-          <div class="nav-item navbar-section text-md-center navbar-section-adjust">
-            <a class="navbar-nav nav-item nav-link nav-link-adjust" routerLink="{{ item.path }}" title="{{ item.label }}">{{ item.label }}</a>
-            <!-- <a *ngIf="item.label==='About'" class="navbar-nav nav-item nav-link nav-link-adjust" href="https://library.uoregon.edu/department-of-open-research/scholars-bank/scholars-bank-overview" title="{{ item.label }}">{{ item.label }}</a> -->
-          </div>
-        </li>
         <ng-container *ngFor="let section of (sections | async)">
-          <ng-container *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+          <ng-container *ngIf="section.id!=='statistics_site'">
+            <ng-container *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngFor="let section of (sections | async)">
+          <ng-container *ngIf="section.id==='statistics_site'">
+            <ng-container *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+          </ng-container>
         </ng-container>
       </ul>
     </div>

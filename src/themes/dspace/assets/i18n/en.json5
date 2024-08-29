@@ -51,4 +51,7 @@
   "info.contactus.other_help": "Use this address if you have selected Other",
   "footer.link.contactus": "Contact Us",
   "info.contactus.error.senderName.required": "A name is required",
+  "menu.section.browse_global_about": "About",
+  "menu.section.browse_global_author_profiles": "Author Profiles",
+  "menu.section.browse_global_contactus": "Contact Us",
 }

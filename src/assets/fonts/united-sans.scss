@@ -1,23 +1,72 @@
 /* src/assets/fonts/united-sans.scss */
 @font-face {
-    font-family: 'United Sans';
-    src: url('../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-@font-face {
-    font-family: 'United Sans';
-    src: url('../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'United Sans';
+  src: url('/assets/fonts//UnitedSansRgBd.otf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
 }
 
+// @font-face {
+//     font-family: 'United Sans';
+//     src: url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: normal;
+// }
+
+// United Serif Regular
 @font-face {
-    font-family: 'United Sans';
-    src: url('../fonts/UnitedSerifRgBd.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+font-family: 'United Serif';
+src: url('/assets/fonts/UnitedSerifRgBd.otf') format('opentype');
+font-weight: 200 900;
+font-stretch: 75% 125%;
+font-style: normal;
 }
 
-  /* Add more @font-face rules for other weights and styles if available */
+.united-Serif-regular {
+font-family: 'United Serif';
+font-weight: normal;
+}
+
+.united-sans {
+font-family: 'United Sans';
+font-weight: bold;
+}
+
+.medium-text {
+font-family: 'United Serif', serif;
+font-weight: 500;  // This will use UnitedSerifRgMd.woff2
+}
+
+.bold-text {
+font-family: 'United Serif', serif;
+font-weight: 700;  // This will use UnitedSerifRgBd.woff2
+}
+
+// Source Serif Variable (Roman)
+// @font-face {
+//   font-family: 'Source Serif Variable';
+//   src: url('../fonts/SourceSerifVariable-Roman.ttf.woff2') format('woff2-variations'),
+//        url('../fonts/SourceSerifVariable-Roman.ttf') format('truetype-variations');
+//   font-weight: 200 900;
+//   font-style: normal;
+// }
+
+// Source Sans Variable (Roman)
+// @font-face {
+//   font-family: 'Source Sans Variable';
+//   src: url('../fonts/SourceSansVariable-Roman.ttf.woff2') format('woff2-variations'),
+//        url('../fonts/SourceSansVariable-Roman.ttf') format('truetype-variations');
+//   font-weight: 200 900;
+//   font-stretch: 75% 125%;
+//   font-style: normal;
+// }
+
+// United Serif Regular Medium
+// @font-face {
+//   font-family: 'United Serif';
+//   src: url('../fonts/UnitedSerifRgMd.woff2') format('woff2');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+/* Add more @font-face rules for other weights and styles if available */

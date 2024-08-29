@@ -3500,7 +3500,7 @@
 
   "repository.title": "Scholars' Bank Repository",
 
-  "repository.title.prefix": "DSpace :: ",
+  "repository.title.prefix": "Scholars' Bank :: ",
 
   "resource-policies.add.button": "Add",
 
@@ -5303,4 +5303,10 @@
   "footer.link.contactus": "Contact Us",
 
   "info.contactus.error.senderName.required": "A name is required",
+
+  "menu.section.browse_global_about": "About",
+
+  "menu.section.browse_global_author_profiles": "Author Profiles",
+
+  "menu.section.browse_global_contactus": "Contact Us",
 }

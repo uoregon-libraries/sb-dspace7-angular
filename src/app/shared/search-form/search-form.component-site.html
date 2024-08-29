@@ -1,7 +1,7 @@
 <div class="background-image-container">
     <div class="background-image">
         <div class="overlay">
-            <h1>Search Scholars' Bank</h1>
+            <h1 class="united-Serif-regular">Search Scholars' Bank</h1>
             <div class="search-container">
 
                 <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" action="/search">
@@ -18,7 +18,7 @@
                                 attr.aria-label="{{ searchPlaceholder }}" [attr.data-test]="'search-box' | dsBrowserOnly"
                                 size="50">
                             <span class="input-group-append">
-                            <button type="submit" class="search-button btn btn-{{brandColor}}" [attr.data-test]="'search-button' | dsBrowserOnly"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
+                            <button type="submit" class="search-button btn btn-{{brandColor}} united-Serif-regular" [attr.data-test]="'search-button' | dsBrowserOnly"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
                         </span>
                         </div>
                     </div>

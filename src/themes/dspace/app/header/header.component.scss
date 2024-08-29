@@ -12,6 +12,7 @@
     height: var(--ds-header-logo-height-xs);
   }
 }
+
 .navbar-toggler .navbar-toggler-icon {
   background-image: none !important;
   line-height: 1.5;
@@ -25,9 +26,15 @@
   }
 }
 
-header .navbar-default {
-  height: inherit;
+header .navbar-ul {
+  background-color: #104735;
+}
+
+header .navbar-ds {
+  background: linear-gradient(0deg, rgb(0, 112, 48) 25%, rgb(16, 71, 53) 135%);
   background-color: #007030;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 header .navbar {
@@ -42,9 +49,14 @@ header .navbar-default .navbar-brand {
 }
 
 #uolib-logo > img {
-  height: 35px;
+  height: 30px;
+  width: 180px;
 }
 
 #uolib-logo > h2 {
   margin: 5px;
+}
+
+.text-yellow {
+  color: #fee11a;
 }
