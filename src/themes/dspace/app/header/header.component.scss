@@ -60,3 +60,7 @@ header .navbar-default .navbar-brand {
 .text-yellow {
   color: #fee11a;
 }
+
+.site-header {
+  font-size: clamp(1.75rem,3vw,3.125rem);
+}

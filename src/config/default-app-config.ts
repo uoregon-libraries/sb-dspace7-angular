@@ -432,4 +432,7 @@ export class DefaultAppConfig implements AppConfig {
     sortField:'dc.title',
     sortDirection:'ASC',
   };
+
+  // Site headers default setting
+  siteHeader = "Scholars' Bank";
 }

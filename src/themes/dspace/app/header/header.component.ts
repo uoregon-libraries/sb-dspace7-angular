@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent as BaseComponent } from '../../../../app/header/header.component';
+import { environment } from 'src/environments/environment';
 
 /**
  * Represents the header with the logo and simple navigation
@@ -10,4 +11,5 @@ import { HeaderComponent as BaseComponent } from '../../../../app/header/header.
   templateUrl: 'header.component.html',
 })
 export class HeaderComponent extends BaseComponent {
+  siteHeader = environment.siteHeader;
 }

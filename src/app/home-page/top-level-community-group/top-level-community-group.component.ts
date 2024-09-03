@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, OnDestroy, Inject } from '@angular/core';
 
-import { BehaviorSubject, combineLatest as observableCombineLatest, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest as observableCombineLatest, of, Subscription } from 'rxjs';
 
 import { SortDirection, SortOptions } from '../../core/cache/models/sort-options.model';
 import { CommunityDataService } from '../../core/data/community-data.service';
@@ -13,6 +13,12 @@ import { hasValue } from '../../shared/empty.util';
 import { switchMap } from 'rxjs/operators';
 import { PaginationService } from '../../core/pagination/pagination.service';
 import { AppConfig, APP_CONFIG } from 'src/config/app-config.interface';
+
+interface Item {
+  icon: string;
+  label: string;
+  uuid: string;
+}
 
 /**
  * this component renders the Top-Level Community list
@@ -51,6 +57,8 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
    */
   currentPageSubscription: Subscription;
 
+  items$: Observable<Item[]>;
+
   constructor(
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
     private cds: CommunityDataService,
@@ -65,6 +73,18 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initPage();
+
+    /**
+   * Initialize all community groups
+   */
+    const items: Item[] = [
+      { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: 'communities/115f1e16-b12e-4f61-9443-b8f18c77dec5' },
+      { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: 'communities/2319638a-59a1-4449-81aa-1965eed0d3ac' },
+      { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: 'communities/c7483469-7394-469b-a8ba-0d4edb61c069' },
+      { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: 'communities/1de5490f-eecd-4392-8d82-182232a59c82' }
+    ];
+
+    this.items$ = of(items);
   }
 
 
@@ -104,12 +124,5 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
     this.unsubscribe();
     this.paginationService.clearPagination(this.config.id);
   }
-
-  items = [
-    { icon: 'Grad-Cap-01-UO-Green.png', label: 'Theses & Dissertations', uuid: 'communities/115f1e16-b12e-4f61-9443-b8f18c77dec5' },
-    { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: 'communities/2319638a-59a1-4449-81aa-1965eed0d3ac' },
-    { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: 'communities/c7483469-7394-469b-a8ba-0d4edb61c069' },
-    { icon: 'Newspaper-02-UO-Green.png', label: 'University Archives', uuid: 'communities/1de5490f-eecd-4392-8d82-182232a59c82' }
-  ];
 
 }

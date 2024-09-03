@@ -1,25 +1,25 @@
 /* src/assets/fonts/united-sans.scss */
 @font-face {
   font-family: 'United Sans';
-  src: url('/assets/fonts//UnitedSansRgBd.otf') format('truetype');
-  font-weight: 200 900;
+  src: url('/assets/fonts//UnitedSansRgBd.otf') format('truetype'),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgBd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgBd.woff") format("woff");
+  font-weight: 600 700;
   font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
 }
-
-// @font-face {
-//     font-family: 'United Sans';
-//     src: url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: normal;
-// }
 
 // United Serif Regular
 @font-face {
 font-family: 'United Serif';
-src: url('/assets/fonts/UnitedSerifRgBd.otf') format('opentype');
+src: url('/assets/fonts/UnitedSerifRgBd.otf') format('opentype'),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgBd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgBd.woff") format("woff");
 font-weight: 200 900;
 font-stretch: 75% 125%;
 font-style: normal;
+font-display: swap;
 }
 
 .united-Serif-regular {
@@ -42,31 +42,148 @@ font-family: 'United Serif', serif;
 font-weight: 700;  // This will use UnitedSerifRgBd.woff2
 }
 
-// Source Serif Variable (Roman)
-// @font-face {
-//   font-family: 'Source Serif Variable';
-//   src: url('../fonts/SourceSerifVariable-Roman.ttf.woff2') format('woff2-variations'),
-//        url('../fonts/SourceSerifVariable-Roman.ttf') format('truetype-variations');
-//   font-weight: 200 900;
-//   font-style: normal;
-// }
+@font-face {
+font-family: "Source Sans Variable Reserved";
+font-weight: 200 900;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Roman.ttf.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Roman.ttf.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Roman.ttf") format("truetype")
+}
 
-// Source Sans Variable (Roman)
-// @font-face {
-//   font-family: 'Source Sans Variable';
-//   src: url('../fonts/SourceSansVariable-Roman.ttf.woff2') format('woff2-variations'),
-//        url('../fonts/SourceSansVariable-Roman.ttf') format('truetype-variations');
-//   font-weight: 200 900;
-//   font-stretch: 75% 125%;
-//   font-style: normal;
-// }
+@font-face {
+font-family: "Source Sans Variable Reserved";
+font-weight: 200 900;
+font-style: italic;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Italic.ttf.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Italic.ttf.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSansVariable-Italic.ttf") format("truetype")
+}
 
-// United Serif Regular Medium
-// @font-face {
-//   font-family: 'United Serif';
-//   src: url('../fonts/UnitedSerifRgMd.woff2') format('woff2');
-//   font-weight: 500;
-//   font-style: normal;
-// }
+@font-face {
+font-family: "Source Serif Variable Reserved";
+font-weight: 200 900;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Roman.ttf.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Roman.ttf.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Roman.ttf") format("truetype")
+}
 
-/* Add more @font-face rules for other weights and styles if available */
+@font-face {
+font-family: "Source Serif Variable Reserved";
+font-weight: 200 900;
+font-style: italic;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Italic.ttf.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Italic.ttf.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/SourceSerifVariable-Italic.ttf") format("truetype")
+}
+
+@font-face {
+font-family: "Font Awesome 6 Free Reserved";
+font-style: normal;
+font-weight: 900;
+font-display: auto;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-solid-900.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-solid-900.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-solid-900.ttf") format("truetype")
+}
+
+@font-face {
+font-family: "Font Awesome 6 Brands Reserved";
+font-style: normal;
+font-weight: normal;
+font-display: auto;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-brands-400.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-brands-400.woff") format("woff"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fontawesome-free-6.2.1/webfonts/fa-brands-400.ttf") format("truetype")
+}
+
+@font-face {
+font-family: "United Serif Reserved";
+font-weight: 100 200;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgLt.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgLt.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Serif Reserved";
+font-weight: 300 500;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgMd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgMd.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Serif Reserved";
+font-weight: 600 700;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgBd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgBd.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Serif Reserved";
+font-weight: 800 900;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgHv.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSerifRgHv.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Sans Reserved";
+font-weight: 100 200;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgLt.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgLt.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Sans Reserved";
+font-weight: 300 500;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgMd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgMd.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Sans Reserved";
+font-weight: 600 700;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgBd.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgBd.woff") format("woff")
+}
+
+@font-face {
+font-family: "United Sans Reserved";
+font-weight: 800 900;
+font-style: normal;
+font-stretch: normal;
+font-display: swap;
+src: url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgHv.woff2") format("woff2"),
+    url("https://cdn.uoregon.edu/uocdn1/uo-web-design-framework/Universal/stable-assets/fonts/United/UnitedSansRgHv.woff") format("woff")
+}
