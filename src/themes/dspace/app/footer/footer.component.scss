@@ -46,7 +46,7 @@
   padding: 20px 30px;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 1.25rem;
   border: 2px solid #fff;
   text-decoration: none;
   color: white;
@@ -104,6 +104,10 @@
 }
 
 .footer-content {
+	font-size: 1rem;
+	line-height: 1.4rem;
+  color: #fff !important;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -130,7 +134,12 @@ a {
   text-decoration: underline;
   display: block;
   margin-bottom: 8px;
-  font-size: 14px;
+}
+
+.cell>a {
+  // color: #fee11a;
+	font-size: 1rem;
+	line-height: 1.4rem;
 }
 
 .cell>a:hover {
@@ -175,7 +184,7 @@ p {
 
 @media (max-width: 768px) {
   .footer-content {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .footer-column {
@@ -204,9 +213,10 @@ p {
 }
 
 .donation-text {
-  font-size: 14px;
-  line-height: 1.4;
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -218,7 +228,8 @@ p {
   .donation-text {
       max-width: 100%;
       margin-bottom: 15px;
-      font-size: 14px;
+      font-size: 1rem;
+      line-height: 1.4rem;
   }
 }
 
@@ -246,4 +257,12 @@ p {
 
 .cell>h3 {
   padding-bottom: 10px;
+	font-size: 1.125rem;
+	margin: 0;
 }
+
+// h1, h2, h3, h4, h5, h6 {
+// 	font-weight: 400;
+// 	font-variation-settings: "wght" 400,"wdth" 100,"ital" 0;
+// 	font-family: var(--font-family-slab,"Source Serif Variable",Times,"Times New Roman",Georgia,"DejaVu Serif",serif);
+// }

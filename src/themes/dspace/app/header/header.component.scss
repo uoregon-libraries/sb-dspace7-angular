@@ -49,18 +49,41 @@ header .navbar-default .navbar-brand {
 }
 
 #uolib-logo > img {
-  height: 30px;
-  width: 180px;
+  height: 37px;
+  // width: 180px;
+  display: block;
+  max-width: 200px;
 }
 
-#uolib-logo > h2 {
-  margin: 5px;
-}
+// #uolib-logo > h2 {
+//   margin: 5px;
+// }
 
 .text-yellow {
   color: #fee11a;
 }
 
 .site-header {
-  font-size: clamp(1.75rem,3vw,3.125rem);
+	font-size: clamp(1.75rem,3vw,3.125rem);
+	line-height: clamp(1.9rem,3vw,3rem);
+	font-family: var("United Serif","Source Serif Variable",Times,"Times New Roman",Georgia,"DejaVu Serif",serif);
+	margin: 0;
+  padding-bottom: 2px
+}
+
+// .site-header__content {
+// 	display: grid;
+// 	grid-auto-columns: min-content;
+// 	grid-template-columns: auto 1fr auto;
+// 	grid-template-rows: auto auto auto;
+// 	max-width: 1200px;
+// 	padding: 0 15px;
+// 	margin: 0 auto;
+// }
+
+h1, h2, h3, h4, h5, h6 {
+	// color: var(--fg-d,var(--uowdf-theme-text-dark,black)) var(--fg-l,var(--uowdf-theme-text-light,white));
+	font-weight: 400;
+	font-variation-settings: "wght" 400,"wdth" 100,"ital" 0;
+	font-family: var("United Serif","Source Serif Variable",Times,"Times New Roman",Georgia,"DejaVu Serif",serif);
 }
