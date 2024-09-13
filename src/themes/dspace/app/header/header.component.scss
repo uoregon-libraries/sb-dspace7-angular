@@ -71,6 +71,11 @@ header .navbar-default .navbar-brand {
   padding-bottom: 2px
 }
 
+.site-header:hover {
+  text-decoration: underline;
+  color: #fee11a;
+}
+
 // .site-header__content {
 // 	display: grid;
 // 	grid-auto-columns: min-content;
