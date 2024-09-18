@@ -1,6 +1,6 @@
 <div class="container">
-    <h3 class="mb-4">{{'bitstream-request-a-copy.header' | translate}}</h3>
-    <div *ngIf="canDownload$|async" class="alert alert-success">
+    <h5 class="mb-4">The viewing of this file has been restricted by the author. For more information, please contact the Scholars' Bank Manager at scholars@uoregon.edu. </h5>
+    <!-- <div *ngIf="canDownload$|async" class="alert alert-success">
         <span>{{'bitstream-request-a-copy.alert.canDownload1' | translate}}</span>
         <a [routerLink]="getBitstreamLink()">{{'bitstream-request-a-copy.alert.canDownload2'| translate}}</a>
     </div>
@@ -83,5 +83,5 @@
                     class="btn btn-default btn-primary"
                     (click)="onSubmit()">{{'bitstream-request-a-copy.submit' | translate}}</button>
         </div>
-    </div>
+    </div> -->
 </div>
