@@ -142,7 +142,7 @@ export class BrowseByMetadataPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    const sortConfig = new SortOptions('default', SortDirection.DESC);
+    const sortConfig = new SortOptions('default', SortDirection.ASC);
     this.updatePage(getBrowseSearchOptions(this.defaultBrowseId, this.paginationConfig, sortConfig));
     this.currentPagination$ = this.paginationService.getCurrentPagination(this.paginationConfig.id, this.paginationConfig);
     this.currentSort$ = this.paginationService.getCurrentSort(this.paginationConfig.id, sortConfig);
