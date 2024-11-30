@@ -64,11 +64,20 @@ import { CommunityListComponent } from './app/community-list-page/community-list
 import { ContactusComponent } from './app/info/contactus/contactus.component';
 import { ContactusFormComponent } from './app/info/contactus/contactus-form/contactus-form.component';
 import { AboutComponent } from './app/info/about/about.component';
+import { NgChartsModule } from 'ng2-charts';
+import { CollectionStatisticsPageComponent } from './app/statistics-page/collection-statistics-page/collection-statistics-page.component';
+import { CommunityStatisticsPageComponent } from './app/statistics-page/community-statistics-page/community-statistics-page.component';
+import { ItemStatisticsPageComponent } from './app/statistics-page/item-statistics-page/item-statistics-page.component';
+import { SiteStatisticsPageComponent } from './app/statistics-page/site-statistics-page/site-statistics-page.component';
 
 const DECLARATIONS = [
   CommunityListComponent,
   ContactusComponent,
   ContactusFormComponent,
+  CollectionStatisticsPageComponent,
+  CommunityStatisticsPageComponent,
+  ItemStatisticsPageComponent,
+  SiteStatisticsPageComponent,
   AboutComponent,
 ];
 
@@ -125,6 +134,7 @@ const DECLARATIONS = [
     FormsModule,
     ResourcePoliciesModule,
     ComcolModule,
+    NgChartsModule,
   ],
   declarations: DECLARATIONS,
 })

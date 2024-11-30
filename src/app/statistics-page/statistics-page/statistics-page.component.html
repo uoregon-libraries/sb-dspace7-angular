@@ -9,16 +9,20 @@
   </ng-container>
 
   <ng-container *ngVar="reports$ | async as reports">
-
     <ng-container *ngIf="!reports">
       <ds-themed-loading></ds-themed-loading>
     </ng-container>
 
     <ng-container *ngIf="reports">
-      <ds-statistics-table *ngFor="let report of reports"
+
+      <div *ngVar="(scope$ | async) as scope">
+        <ds-statistics-chart [reports]="reports" [scope]="scope"></ds-statistics-chart>
+      </div>
+
+      <!-- <ds-statistics-table *ngFor="let report of reports"
                            [report]="report"
                            class="m-2 {{ report.id }}">
-      </ds-statistics-table>
+      </ds-statistics-table> -->
       <div *ngIf="!(hasData$ | async)">
         {{ 'statistics.page.no-data' | translate }}
       </div>

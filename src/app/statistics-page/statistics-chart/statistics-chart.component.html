@@ -1,0 +1,148 @@
+<div *ngIf="scope.type==='site'">
+  <div class="flex-container1">
+    <div class="row">
+      <div class="flex-item flex-item-1 icon-box">
+        <canvas id="chartDoughnut" width="300" height="200"></canvas>
+      </div>
+      <div class="flex-item flex-item-2 icon-box">
+        <canvas id="myChart" width="500" height="200"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="flex-item full-width-item icon-box">
+        <canvas id="myChart2" width="800" height="240"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="scope.type==='community' || scope.type==='collection'">
+  <div class="flex-container2">
+    <div class="row">
+      <div class="flex-item flex-item-1 icon-box">
+        <canvas id="chartDoughnut" width="300" height="200"></canvas>
+      </div>
+      <div class="flex-item flex-item-2 icon-box">
+        <canvas id="myChart" width="500" height="200"></canvas>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="flex-item full-width-item">
+        <canvas id="myChart2" width="800" height="240"></canvas>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<div *ngIf="scope.type==='item'">
+  <div class="flex-container2">
+    <div class="row">
+      <div class="flex-item flex-item-1 icon-box">
+        <ng-container *ngIf="!chartData3">
+          <ds-themed-loading></ds-themed-loading>
+        </ng-container>
+        <canvas id="chartDoughnut" width="300" height="200"></canvas>
+      </div>
+      <div class="flex-item flex-item-2 icon-box">
+        <canvas id="myChart" width="500" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="scope.type==='site' || scope.type==='community' || scope.type==='collection'">
+  <div class="flex-container">
+    <div class="row" style="padding-top: 20px;">
+      <div>Country Downloads</div>
+    </div>
+    <div class="row">
+      <div class="flex-item full-width-item icon-box">
+        <div id="map" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="scope.type==='item'">
+  <div class="flex-container">
+    <div class="row" style="padding-top: 20px;">
+      <div>Country Views</div>
+    </div>
+    <div class="row">
+      <div class="flex-item full-width-item icon-box">
+        <div id="map" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div *ngIf="scope.type==='site' || scope.type==='community' || scope.type==='collection'">
+  <div class="flex-container_table">
+    <div class="row">
+      <div class="flex-item_table icon-box">
+        <h2 class="table-title">Top 10 Items with the Most Pageviews</h2>
+        <div class="table-header">
+          <div class="header-cell title-cell">
+            Title
+          </div>
+          <div class="header-cell author-cell">
+            Author
+          </div>
+          <div class="header-cell pageviews-cell">
+            Pageviews
+          </div>
+        </div>
+        <div class="table-body">
+          <div class="table-row" *ngFor="let item of itempageviews">
+            <div class="table-cell title-cell"><a [routerLink]="['/items', item.title]">{{ truncateString((getLabel(item.title) | async), 75) }}</a></div>
+            <ng-container *ngVar="(getItem(item.title) | async)?.firstMetadataValue(['dc.contributor.author']) as authorName">
+              <div class="table-cell author-cell">
+                <a [routerLink]="['/search']"
+                   [queryParams]="{
+                     'f.author': authorName + ',equals',
+                     'spc.page': '1'
+                   }">
+                {{ authorName }}
+                </a>
+              </div>  
+            </ng-container>
+            <div class="table-cell pageviews-cell">{{ item.views | number }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item_table icon-box">
+        <h2 class="table-title">Top 10 Items with the Most File Downloads</h2>
+        <div class="table-header">
+          <div class="header-cell title-cell">
+            Title
+          </div>
+          <div class="header-cell author-cell">
+            Author
+          </div>
+          <div class="header-cell pageviews-cell">
+            Downloads
+          </div>
+        </div>
+        <div class="table-body">
+          <div class="table-row" *ngFor="let item of itemdownloads">
+            <div class="table-cell title-cell"><a [routerLink]="['/items', item.title]">{{ truncateString((getLabel(item.title) | async), 75) }}</a></div>
+            <ng-container *ngVar="(getItem(item.title) | async)?.firstMetadataValue(['dc.contributor.author']) as authorName">
+              <div class="table-cell author-cell">
+                <a [routerLink]="['/search']"
+                   [queryParams]="{
+                     'f.author': authorName + ',equals',
+                     'spc.page': '1'
+                   }">
+                {{ authorName }}
+                </a>
+              </div>
+            </ng-container>
+            <div class="table-cell pageviews-cell">{{ item.views | number }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <span *ngIf="item.allMetadataValues(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']).length === 0">{{'mydspace.results.no-authors'
+                  | translate}}</span> -->
