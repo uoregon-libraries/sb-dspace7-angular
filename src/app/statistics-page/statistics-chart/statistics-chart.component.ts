@@ -156,14 +156,22 @@ ngOnDestroy(): void {
 
     if (this.scope.type === 'site') {
       this.loadDataTb1(this.scope);
-      this.initSiteCountryDownloads(this.scope).then(() => this.initMap());
+      this.initSiteCountryDownloads(this.scope).then(() => this.useCountrydata());
     } else if (this.scope.type === 'community' || this.scope.type === 'collection') {
-      this.initSiteCountryDownloads(this.scope).then(() => this.initMap());
+      this.initSiteCountryDownloads(this.scope).then(() => this.useCountrydata());
       this.loadDataTb1(this.scope);
     } else if (this.scope.type === 'item') {
       this.loadReportsData();
-    }
 
+      this.http.get('assets/js/countries.geojson').subscribe((geoJsonData: any) => {
+        this.createChoroplethLayer(geoJsonData);
+        this.geoJsonData = geoJsonData;
+      });
+
+    }
+  }
+
+  useCountrydata() {
     // Load GeoJSON data and apply it to the map
     this.http.get('assets/js/countries.geojson').subscribe((geoJsonData: any) => {
       this.createChoroplethLayer(geoJsonData);
@@ -177,10 +185,12 @@ ngOnDestroy(): void {
       this.loadData(this.scope).then(() => this.initializeChart1());
       this.loadDataFromFilesSite().then(() => this.initializeChart2());
       this.loadDataForDoughnut(this.scope).then(() => this.initializeChartDoughnut());
+      this.initMap();
     } else if (this.scope.type === 'community' || this.scope.type === 'collection') {
       this.loadDataForDoughnut(this.scope).then(() => this.initializeChartDoughnut());
       this.loadData(this.scope).then(() => this.initializeChart1());
       this.loadDataFromFiles(this.scope).then(() => this.initializeChart2());
+      this.initMap();
     } else if (this.scope.type === 'item') {
       this.initializeChartDoughnut();
       this.initializeChartViews();

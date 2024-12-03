@@ -57,7 +57,10 @@
     </div>
     <div class="row">
       <div class="flex-item full-width-item icon-box">
-        <div id="map" style="width: 100%; height: 500px;"></div>
+	<ng-container *ngIf="!countryData">
+          <ds-themed-loading></ds-themed-loading>
+        </ng-container>
+	<div id="map" style="width: 100%; height: 500px;"></div>
       </div>
     </div>
   </div>
