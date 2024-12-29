@@ -13,8 +13,8 @@ import { icon, Marker } from 'leaflet';
 import 'leaflet.markercluster';
 import { HttpClient } from '@angular/common/http';
 
-import * as jsonData from '../../../assets/points.json';
 import * as historyOffsets from '../../../assets/js/historyoffsets.json';
+import * as countrycodes from '../../../assets/js/country-codes.json';
 
 // Import Angular core and Chart.js modules
 import { Subscription } from 'rxjs';
@@ -25,6 +25,8 @@ import { Item } from '../../core/shared/item.model';
 import { RemoteData } from 'src/app/core/data/remote-data';
 import { RelationMapService } from '../relationmap.service';
 import { ExceptionMapService } from '../exceptionmap.service';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 export interface TableViewData {
   title: string;
@@ -87,6 +89,7 @@ export class StatisticsChartComponent implements OnInit, AfterViewInit, OnDestro
 
   private owningCommMap: { [key: string]: number } = {};
   private offsets: any = (historyOffsets as any).default;
+  private codenamepairs: any = (countrycodes as any).default;
 
   constructor(
     protected dsoService: DSpaceObjectDataService,
@@ -129,20 +132,16 @@ ngOnDestroy(): void {
     this.dataSubscriptionTb1.unsubscribe();
   }
 
-  // if (this.dataSubscriptionRelationMap) {
-  //   this.dataSubscriptionRelationMap.unsubscribe();
-  // }
+  if (this.itemCountSubscription) {
+    this.itemCountSubscription.unsubscribe();
+  }
 
+  if (this.map) {
+    this.map.remove();
+  }
 }
 
   ngOnInit() {
-    // console.log(this.offsets.countryDownloads['84a29968-2840-4318-9038-10b94703dba9'].length);
-    // console.log(this.offsets.countryDownloads['84a29968-2840-4318-9038-10b94703dba9']);
-
-    // console.log(this.offsets.monthcounts['84a29968-2840-4318-9038-10b94703dba9'][0]);
-    // console.log(this.offsets.monthcounts['84a29968-2840-4318-9038-10b94703dba9']['pageviews']);
-    // console.log(typeof this.offsets.viewdownloads['84a29968-2840-4318-9038-10b94703dba9'][1]);
-    // console.log(this.offsets.exceptionComCols[2]);
 
     this.exceptionMapService.getExceptionMap().subscribe(
       exceptionMap => this.exceptionMap = exceptionMap
@@ -157,17 +156,13 @@ ngOnDestroy(): void {
     if (this.scope.type === 'site') {
       this.loadDataTb1(this.scope);
       this.initSiteCountryDownloads(this.scope).then(() => this.useCountrydata());
+      this.loadAllItemCount();
     } else if (this.scope.type === 'community' || this.scope.type === 'collection') {
       this.initSiteCountryDownloads(this.scope).then(() => this.useCountrydata());
       this.loadDataTb1(this.scope);
     } else if (this.scope.type === 'item') {
       this.loadReportsData();
-
-      this.http.get('assets/js/countries.geojson').subscribe((geoJsonData: any) => {
-        this.createChoroplethLayer(geoJsonData);
-        this.geoJsonData = geoJsonData;
-      });
-
+      this.useCountrydata();  
     }
   }
 
@@ -196,10 +191,12 @@ ngOnDestroy(): void {
       this.initializeChartViews();
       this.initMap();
     }
+    this.initCountryCodeNames().then(() => this.countryTableData);
+
   }
 
-  ////////////////////Read files////////////////////////////////
-//======== Working Sample Start ========
+////////////////////Read files////////////////////////////////
+
 private chart1: Chart | null = null;
 private dataSubscription1: Subscription | null = null;
 public chartData1: number[] = []; // Array to store data for the chart
@@ -210,7 +207,6 @@ public chartData6monDownloads1: number[] = [];
 public relationMap: {[key: string]: string[]} = {};
 public exceptionMap: {[key: string]: string[]} = {};
 private dataSubscriptionRelationMap: Subscription | null = null;
-
 
 // Helper method to process pageview counts
 private processviewCounts(counts: number[], chartdata: number[]): void {
@@ -309,8 +305,10 @@ private async loadData(scope: any): Promise<void> {
 }
 
 convertMonth(datestr: string) {
-  const date = new Date(datestr);
-  return new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
+  // const date = new Date(datestr);
+  const datePipe = new DatePipe('en-US');
+  // return new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
+  return datePipe.transform(datestr, 'MMM yyyy') || '';
 }
 
 private initializeChart1(): void {
@@ -397,7 +395,7 @@ private initializeChartViews(): void {
   }
 }
 
-//===//===Multiple Files 1===//===
+//======Multiple Files 1======
 
 private chart2: Chart | null = null;
 private dataSubscription2: Subscription | null = null;
@@ -406,11 +404,9 @@ public chartData22: number[] = [];
 public labels2: string[] = [];
 public uuids2: string[] = [];
 
-//%%%%%%%%%%%%%
 randomIntFromInterval(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 
 convertArray(owningFields: any) {
   let owningCommCollMap = {};
@@ -650,8 +646,6 @@ private async loadDataFromFiles(scope: any): Promise<void> {
   });
 }
 
-//%%%%%%%%%%%%%
-
 private initializeChart2(): void {
   const chartConfig: ChartConfiguration = {
     type: 'bar',
@@ -704,16 +698,12 @@ private initializeChart2(): void {
   }
 }
 
-//===//===Multiple Files 2 ===//===
+//======Multiple Files 2======
 
 private chart3: Chart | null = null;
 private dataSubscription3: Subscription | null = null;
 public chartData3: number[] = [];
 public labels3: string[] = [];
-
-private exceptionalComCols = [
-
-]
 
 private async loadDataForDoughnut(scope: any): Promise<void> {
   let dataFiles = [];
@@ -780,91 +770,17 @@ private async loadDataForDoughnut(scope: any): Promise<void> {
             console.warn('Unexpected file structure');
         }
       });
-      resolve(); // Resolve once all data is processed
+      resolve();
     });
   });
 
-}
-
-
-private async loadDataFromFiles3_copy(scope: any): Promise<void> {
-  let dataFiles = [];
-  if (scope.type==='site') {
-    dataFiles = [
-      'assets/data/site-pageviews.json',
-      'assets/data/site-downloads.json',
-    ];
-    } else if (scope.type==='community') {
-    dataFiles = [
-      'assets/data/all-communities-pageviews.json',
-      'assets/data/all-communities-downloads.json'
-    ];
-  } else if (scope.type==='collection') {
-    dataFiles = [
-      'assets/data/all-collections-pageviews.json',
-      'assets/data/all-collections-downloads.json'
-    ];
-  }
-
-  return new Promise((resolve) => {
-    this.dataSubscription3 = forkJoin(
-      dataFiles.map(file => this.http.get<any>(file))
-    ).subscribe(responses => {
-      responses.forEach((response, index) => {
-        switch (index) {
-          case 0: // pageviews
-            if (scope.type==='site') {
-              if (response.response && response.response.numFound) {
-                this.chartData3.push(response.response.numFound);
-              }
-            } else if (scope.type==='community') {
-              if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.owningComm) {
-                const owningCommArray = response.facet_counts.facet_fields.owningComm;
-                const viewMap = this.convertArray1(owningCommArray);
-                this.chartData3.push(this.getValueById(scope.id, viewMap));
-              }
-            } else if (scope.type==='collection') {
-              if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.owningColl) {
-                const owningCollArray = response.facet_counts.facet_fields.owningColl;
-                const viewMap = this.convertArray1(owningCollArray);
-                this.chartData3.push(this.getValueById(scope.id, viewMap));
-              }
-            }
-            break;
-
-          case 1: // downloads
-            if (scope.type==='site') {
-              if (response.response && response.response.numFound) {
-                this.chartData3.push(response.response.numFound);
-              }
-            } else if (scope.type==='community') {
-              if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.owningComm) {
-                const owningCommArray = response.facet_counts.facet_fields.owningComm;
-                const viewMap = this.convertArray1(owningCommArray);
-                this.chartData3.push(this.getValueById(scope.id, viewMap));
-              }
-            } else if (scope.type==='collection') {
-              if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.owningColl) {
-                const owningCollArray = response.facet_counts.facet_fields.owningColl;
-                const viewMap = this.convertArray1(owningCollArray);
-                this.chartData3.push(this.getValueById(scope.id, viewMap));
-              }
-            }
-
-          default:
-            console.warn('Unexpected file structure');
-        }
-      });
-      resolve(); // Resolve once all data is processed
-    });
-  });
 }
 
 private initializeChartDoughnut(): void {
   const chartConfig: ChartConfiguration = {
     type: 'doughnut',
     data: {
-      labels: ['pageviews', 'downloads'],
+      labels: ['Pageviews '+this.formatNumber(this.chartData3[0]), 'Downloads '+this.formatNumber(this.chartData3[1])],
       datasets: [{
         label: 'Aggregated Dataset',
         data: this.chartData3,
@@ -907,30 +823,6 @@ private initializeChartDoughnut(): void {
 }
 
 // Doughnut on Item page
-
-
-private async initSiteCountryDownloads1(scope: any): Promise<void> {
-  let dataFile = '';
-  if(scope.type==='site') {
-    dataFile = '/assets/data/site-country-downloads.json';
-  } else if (scope.type==='community' || scope.type==='collection') {
-    dataFile = `/assets/data/${scope.id}/country-downloads.json`;
-  }
-
-  return new Promise((resolve) => {
-    this.dataSubscriptionMap1 = this.http.get<any>(dataFile)
-      .subscribe(response => {
-        if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.countryCode) {
-          const countryCode = response.facet_counts.facet_fields.countryCode;
-          for (let i = 0; i < countryCode.length; i += 2) {
-            this.countryData[countryCode[i]] = countryCode[i+1];
-          }
-        }
-        resolve();
-      });
-  });
-}
-
 
 private loadReportsData() {
   this.reports.forEach((report) => {
@@ -982,7 +874,19 @@ private loadReportsData() {
   })
 }
 
-//===//=== Tables ===//===
+private itemCountSubscription: Subscription | null = null;
+public allItemCount = 0;
+
+private loadAllItemCount(): void {
+  const dataFile = '/assets/data/all-item-count.json';
+  this.http.get<any>(dataFile).subscribe(response => {
+    this.allItemCount = response.response.numFound;
+    this.loading = false;
+    this.cdr.detectChanges();
+  });
+}
+
+//====== Tables ======
 
 public authorpageviews: TableViewData[] = [];
 public authordownloads: TableViewData[] = [];
@@ -1058,14 +962,6 @@ private loadDataTb1(scope: any): void {
   });
 }
 
-private loadDataTb11(): void {
-  this.http.get<any>('assets/data/site-top10-authors-pageviews.json').subscribe(response => {
-    this.authorpageviews = this.transformArray(response.facet_counts.facet_fields.epersonid);
-    this.loading = false;
-    this.cdr.detectChanges();
-  });
-}
-
 private transformArray(data: (string | number)[]): TableViewData[] {
   const transformed: TableViewData[] = [];
   for (let i = 0; i < data.length; i += 2) {
@@ -1096,15 +992,24 @@ getItem(uuid: string): Observable<DSpaceObject> {
   );
 }
 
+// getDsoObject(uuid: string): Observable<DSpaceObject> {
+//   return this.dsoService.findById(uuid).pipe(
+//     getFirstCompletedRemoteData(),
+//     map((rd: RemoteData<DSpaceObject>) => {
+//       if (rd.hasSucceeded) {
+//         return rd.payload.;
+//       }
+//       throw new Error(rd.errorMessage);
+//     })
+//   );
+// }
+
 getItemAuthors(uuid: string) {
   // let authors: string[] = [];
   return this.getItem(uuid).subscribe((item) => {
     item.allMetadataValues(['dc.contributor.author', 'dc.creator', 'dc.contributor.*']);
   });
 }
-
-//======== Working Samples End ========
-//======== Previous Code ============
 
   getTopCommunities(data) {
     const topComms: any = data.response.docs;
@@ -1146,27 +1051,7 @@ getItemAuthors(uuid: string) {
     }      
   }
 
-  ////////////////// Previous Code End////////////////////////////////
   private geoJsonData: any;
-
-  /**
-   * Get the row label to display for a statistics point.
-   * @param point the statistics point to get the label for
-   */
-  // getLabel(point: Point): Observable<string> {
-  //   switch (this.report.reportType) {
-  //     case 'TotalVisits':
-  //       return this.dsoService.findById(point.id).pipe(
-  //         getFinishedRemoteData(),
-  //         getRemoteDataPayload(),
-  //         map((item) => !isEmpty(item) ? this.nameService.getName(item) : this.translateService.instant('statistics.chart.no-name')),
-  //       );
-  //     case 'TopCities':
-  //     case 'topCountries':
-  //     default:
-  //       return of(point.label);
-  //   }
-  // }
 
   // Charts
   @ViewChild('chartCanvas') chartCanvas: ElementRef;
@@ -1226,9 +1111,12 @@ getItemAuthors(uuid: string) {
   // Map
   private map: any;
   private dataSubscriptionMap1: Subscription | null = null;
+  private dataSubscriptionMap2: Subscription | null = null;
 
   // Sample population data for countries
   public countryData = {};
+  public countryCodeName = {};
+  public countryData2 = {};
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -1240,6 +1128,11 @@ getItemAuthors(uuid: string) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
+
+    // Handle resize events
+    window.addEventListener('resize', () => {
+      this.map.invalidateSize();
+    });
   }
 
   private createChoroplethLayer(geoJsonData: any): void {
@@ -1301,7 +1194,11 @@ getItemAuthors(uuid: string) {
   private onEachFeature(feature: any, layer: any): void {
     const countryCode = feature.properties.ISO_A2;
     const viewCounts = this.countryData[countryCode];
-    layer.bindPopup(`<strong>${feature.properties.ADMIN}</strong><br>Downloads: ${viewCounts}`);
+    layer.bindPopup(`<strong>${feature.properties.ADMIN}</strong><br>Downloads: ${this.formatNumber(viewCounts)}`);
+    if(viewCounts > 0) {
+      this.countryData2[feature.properties.ADMIN] = viewCounts;
+    }
+    
     // layer.on({
     //   mouseover: this.highlightFeature,
     //   mouseout: this.resetHighlight,
@@ -1328,12 +1225,9 @@ getItemAuthors(uuid: string) {
         .subscribe(response => {
           if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.countryCode) {
             const countryCode = response.facet_counts.facet_fields.countryCode;
-            console.log("NORMAL");
-            console.log(countryCode);
             for (let i = 0; i < countryCode.length; i += 2) {
               this.countryData[countryCode[i]] = countryCode[i+1];
             }
-            console.log(this.countryData);
           }
 
           if(this.offsets.exceptionComCols.includes(scope.id)) {
@@ -1345,101 +1239,115 @@ getItemAuthors(uuid: string) {
                 this.countryData[downloads[i]] = downloads[i+1];
               }
             }
-            console.log(this.countryData);
           }
           resolve();
         });
     });
   }
 
-  private async initSiteCountryDownloads_copy(scope: any): Promise<void> {
-    let dataFile = '';
-    if(scope.type==='site') {
-      dataFile = '/assets/data/site-country-downloads.json';
-    } else if (scope.type==='community' || scope.type==='collection') {
-      dataFile = `/assets/data/${scope.id}/country-downloads.json`;
-    }
+  private async initCountryCodeNames(): Promise<void> {
+    const dataFile = '/assets/js/countries.geojson';
 
     return new Promise((resolve) => {
-      this.dataSubscriptionMap1 = this.http.get<any>(dataFile)
+      this.dataSubscriptionMap2 = this.http.get<any>(dataFile)
         .subscribe(response => {
-          if (response.facet_counts && response.facet_counts.facet_fields && response.facet_counts.facet_fields.countryCode) {
-            const countryCode = response.facet_counts.facet_fields.countryCode;
-            for (let i = 0; i < countryCode.length; i += 2) {
-              this.countryData[countryCode[i]] = countryCode[i+1];
-            }
+          if (response.features) {
+            const countries = response.features;
+            countries.forEach((country) => {
+              this.countryCodeName[country.properties.ISO_A2] = country.properties.ADMIN;
+            })
           }
           resolve();
         });
     });
   }
 
-//////////////
-// City Map
-
-@ViewChild('clustermap')
-private mapContainer: ElementRef<HTMLElement> | any;
-
-private points: any = (jsonData as any).default;
-
-  private initClusterMap() {
-    const map = L.map(this.mapContainer.nativeElement).setView([35.1879507, -97.4421919], 4);
-
-    L.tileLayer('https://maps.geoapify.com/v1/tile/maptiler-3d/{z}/{x}/{y}.png?apiKey=aed03ff936944702bbbd831228a1f2bc', {
-      attribution: 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
-      maxZoom: 18,
-      minZoom: 3,
-      id: 'osm-bright'
-    } as any).addTo(map);
-  
-    let markers = L.markerClusterGroup();
-  
-    const iconRetinaUrl = 'assets/marker-icon-2x.png';
-    const iconUrl = 'assets/marker-icon.png';
-    const shadowUrl = 'assets/marker-shadow.png';
-    const iconDefault = icon({
-      iconRetinaUrl,
-      iconUrl,
-      shadowUrl,
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      tooltipAnchor: [16, -28],
-      shadowSize: [41, 41]
-    });
-    Marker.prototype.options.icon = iconDefault;
-  
-    for (var point of this.points) {
-      let splitted = point.latlng.split(",");
-      let latlng: [number,number] = [splitted[0].trim() as number,splitted[1].trim() as number];
-      let url: string = "/handle/"+point.uri;
-      markers.addLayer(L.marker(latlng).bindPopup(`
-        <a href="${url}">${point.sid}<br>${point.location}</a>
-      `)
-      );
+  public formatNumber(value: number | string, separator: string = ','): string {
+    if (typeof value === 'string' && value.length === 0) {
+      return "";
     }
-    map.addLayer(markers);
+    if (typeof value === 'undefined') {
+      return "0";
+    }
+    
+    const num = typeof value === 'string' ? parseFloat(value) : value;
+    const isNegative = num < 0;
+    const absNum = Math.abs(num);
+    
+    // Split number into integer and decimal parts
+    const [integerPart, decimalPart = ''] = absNum.toString().split('.');
+    
+    // Add thousands separator to integer part
+    const formattedInteger = integerPart
+        .split('')
+        .reverse()
+        .reduce((acc, digit, index) => {
+            const shouldAddSeparator = index > 0 && index % 3 === 0;
+            return digit + (shouldAddSeparator ? separator : '') + acc;
+        }, '');
+    
+    // Combine parts
+    const result = formattedInteger + (decimalPart ? `.${decimalPart}` : '');
+
+    // Add negative sign if needed
+    return isNegative ? `-${result}` : result;
   }
-/////////////////////
 
-private dataSubscriptionTest: Subscription | null = null;
+  get countryTableData() {
+    const codenames = this.codenamepairs;
+    const entries =  Object.entries(this.countryData);
+    console.log("HERE IS THE LIST");
+    console.log(entries);
+    const len = entries.length;
+    const rows = [];
 
-  private async loadfromcofig(): Promise<void> {
-    const dataFile = 'config/top-communities.json';
+    for (let i = 0; i < entries.length; i += 2) {
+      if(i+1 < len) {
+        let c1 = entries[i][0];
+        let d1 = entries[i][1];
+        let c2 = entries[i+1][0];
+        let d2 = entries[i+1][1];
+        if(typeof(codenames[c1]!=='undefined')) {
+          c1 = codenames[c1];
+        }
+        if(typeof(codenames[c2]!=='undefined')) {
+          c2 = codenames[c2];
+        }
+        rows.push({
+          country1: c1,
+          downloads1: d1,
+          country2: c2,
+          downloads2: d2
+        });  
+      } else {
+        let c1 = entries[i][0];
+        let d1 = entries[i][1];
+        const c2 = '';
+        const d2 = '';
+        if(typeof(codenames[c1]!=='undefined')) {
+          c1 = codenames[c1];
+          rows.push({
+            country1: c1,
+            downloads1: d1,
+            country2: c2,
+            downloads2: d2
+          });  
+        }
+      }
+    }
+    return rows;
+  }
 
-    return new Promise((resolve) => {
-      this.dataSubscriptionTest = this.http.get<any>(dataFile)
-        .subscribe(response => {
-          if (response.response && response.response.docs) {
-            response.response.docs.forEach((doc: any) => {
-              if (doc['dc.title'] && doc['dc.title'][0]) {
-                console.log(doc['dc.title'][0]);
-              }
-            });
-          }
-          resolve();
-        });
+  sortObjectByValue(obj: { [key: string]: number }): { [key: string]: number } {
+    const entries = Object.entries(obj);
+    entries.sort((a, b) => b[1] - a[1]);
+    
+    const sortedObject: { [key: string]: number } = {};
+    entries.forEach(([key, value]) => {
+      sortedObject[key] = value;
     });
+  
+    return sortedObject;
   }
+
 }
-
