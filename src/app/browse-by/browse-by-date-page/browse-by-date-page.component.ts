@@ -86,7 +86,7 @@ export class BrowseByDatePageComponent extends BrowseByMetadataPageComponent {
    * @param scope           The scope under which to fetch the earliest item for
    */
   updateStartsWithOptions(definition: string, metadataKeys: string[], scope?: string) {
-    const firstItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.DESC);
+    const firstItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.ASC);
     const lastItemRD = this.browseService.getFirstItemFor(definition, scope, SortDirection.DESC);
     this.subs.push(
       observableCombineLatest([firstItemRD, lastItemRD]).subscribe(([firstItem, lastItem]) => {
