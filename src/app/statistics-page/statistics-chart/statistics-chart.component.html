@@ -265,7 +265,7 @@
   <div class="row icon-box">
     <div>
       <h3>Total items</h3>
-      <p>This {{scope.type}} has {{allItemCount}} items</p>
+      <p>This {{scope.type}} has {{formatNumber(allItemCount)}} items</p>
     </div>
   </div>
 </ng-container>
@@ -273,7 +273,7 @@
   <div class="row icon-box">
     <div>
       <h3>Total items</h3>
-      <p>This {{scope.type}} has {{scope.archivedItemsCount}} items</p>
+      <p>This {{scope.type}} has {{formatNumber(scope.archivedItemsCount)}} items</p>
     </div>
   </div>
 </ng-container>
