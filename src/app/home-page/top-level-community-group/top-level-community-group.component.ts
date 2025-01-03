@@ -80,8 +80,8 @@ export class TopLevelCommunityGroupComponent implements OnInit, OnDestroy {
     const items: Item[] = [
       { icon: 'Grad-Cap-01-UO-Green.png', label: 'Student Research', uuid: 'communities/dd3eace9-08b2-4493-8b6a-20cd0d508692' },
       { icon: 'Briefcase-01-UO-Green.png', label: 'University Scholarship', uuid: 'communities/2319638a-59a1-4449-81aa-1965eed0d3ac' },
-      { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: 'communities/c7483469-7394-469b-a8ba-0d4edb61c069' },
-      { icon: 'Newspaper-02-UO-Green.png', label: 'Archival Materials', uuid: 'communities/1de5490f-eecd-4392-8d82-182232a59c82' }
+      { icon: 'Globe-01-UO-Green.png', label: 'Open Publications', uuid: 'communities/ec3e0190-8af8-4a20-8ce8-868795af8c0e' },
+      { icon: 'Newspaper-02-UO-Green.png', label: 'Archival Materials', uuid: 'communities/65590c43-5461-41b4-87c3-ad58db202a07' }
     ];
 
     this.items$ = of(items);
